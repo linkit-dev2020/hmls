@@ -173,7 +173,7 @@ class LessonsController extends Controller
             $lesson->src = $request->url_src;
           }elseif($request->embadedCode_src !=null) {
             $lesson->src = $request->embadedCode_src;
-            $lesson->isLive = $request->isLive;
+            $lesson->isLive = $request->isLive=='on'?1:0;
             $lesson->start = $request->start;
           }
 
@@ -200,9 +200,9 @@ class LessonsController extends Controller
         $lesson->teachers()->syncWithoutDetaching(Auth::user()->id);
         //Auth::user()->lessons()->syncWithoutDetaching($lesson->id);
         }
-        if($request->isLive == 1)
+        if($request->isLive == 'on')
         {
-            $this->sendMails($request->course_id,$request->start);
+            //$this->sendMails($request->course_id,$request->start);
         }
          //Return redirect
         return redirect()

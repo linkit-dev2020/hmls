@@ -95,9 +95,11 @@
             <div class="content-header">
 
                 <h2>
-
-                <small><i class="fa fa-graduation-cap" aria-hidden="true" style="font-size:24px;"></i> الصفوف المرتبط بها</small>
-
+                <?php if($user->hasRole(3)): ?>
+                    <small><i class="fa fa-graduation-cap" aria-hidden="true" style="font-size:24px;"></i> الصفوف المرتبط بها</small>
+                <?php else: ?>
+                    <small><i class="fa fa-graduation-cap" aria-hidden="true" style="font-size:24px;"></i> المواد المرتبط بها</small>
+                <?php endif; ?>
                 </h2>
 
             </div>
@@ -106,13 +108,18 @@
 
                 <thead>
 
-                <tr> 
+                <tr>
+                    <?php if($user->hasRole(3)): ?>
+                        <th>اسم الصف</th>
+                    <?php else: ?>
+                        <th>اسم المادة</th>
+                    <?php endif; ?>
 
-                    <th>اسم الصف</th>
-
-                    
-
-                    <th>فصل المستخدم عن الصف</th>
+                    <?php if($user->hasRole(3)): ?>
+                        <th>فصل المستخدم عن الصف</th>
+                    <?php else: ?>
+                        <th>فصل المدرس عن المادة</th>
+                    <?php endif; ?>
 
                 </tr>
 
@@ -167,11 +174,11 @@
 
                 <?php elseif($user->hasRole(2)): ?>
 
-                <?php $__currentLoopData = $user->classes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $class): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php $__currentLoopData = $user->subjects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $class): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
                 <tr>
 
-                    <td><?php echo e($class->name); ?></td>
+                    <td><?php echo e($class->name); ?> التابعة لـ <?php echo e($class->class->name); ?></td>
 
                     <td>
 
@@ -181,7 +188,7 @@
 
 
 
-                    <form action="<?php echo e(route('class.deleteteacher',['class' => $class->id])); ?>" method="POST" id="deleteForm">
+                    <form action="<?php echo e(route('subject.deleteteacher',['subject' => $class->id])); ?>" method="POST" id="deleteForm">
 
                         <?php echo csrf_field(); ?>
 

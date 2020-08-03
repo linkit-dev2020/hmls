@@ -37,7 +37,7 @@
                     @endif
                     <div class="d-md-flex">
                         <div class="form-group ml-md-4">
-                            <input type="text" class="form-control" name="tc" required placeholder="الكملك">
+                            <input type="text" class="form-control" name="tc" required placeholder="البريد الالكتروني">
                         </div>
                     </div>
                     @if ($errors->has('password'))
