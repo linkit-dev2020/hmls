@@ -27,11 +27,8 @@
         <li><a href="{{route('subject.index')}}">المواد<i class="fa fa-angle-double-left pull-left"></i></a></li>
         <li><a href="{{route('unit.index')}}">الوحدات الدرسية<i class="fa fa-angle-double-left pull-left"></i></a></li>
         <li><a href="{{route('lesson.index')}}">الدروس<i class="fa fa-angle-double-left pull-left"></i></a></li>
-        <li><a href="{{route('classrequest.index')}}">إدارة طلبات الصفوف<i class="fa fa-angle-double-left pull-left"></i></a></li>
-        <li><a href="{{route('courserequest.index')}}">إدارة طلبات الدورات<i class="fa fa-angle-double-left pull-left"></i></a></li>
         <li><a href="{{route('test.index')}}">الأختبارات<i class="fa fa-angle-double-left pull-left"></i></a></li>
         <li><a href="{{route('attachment.index')}}">المرفقات<i class="fa fa-angle-double-left pull-left"></i></a></li>
-
         <li><a href="{{route('notes.index')}}">الاعلانات<i class="fa fa-angle-double-left pull-left"></i></a></li>
         @endif
         @if (Auth::user()->hasRole(2))
