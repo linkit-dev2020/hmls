@@ -53,13 +53,12 @@ Route::get('/activate','HomeController@showStudent')->name('activate');
 
  //Home interface
 Route::get('/', function() {
-    $studentThanks = \App\StudentThank::latest()->get();
     $carousels = \App\Carousel::latest()->get();
     $showLessons =\App\ShowLesson::latest()->get();
     $classes =\App\ClassRoom::all()->sortBy('order_num');
     $courses =\App\Course::all()->sortBy('order_num');
     $notes = \App\Note::where('type','public')->get();
-    return view('front-end.nhome.home',compact('studentThanks','carousels','showLessons','classes','courses','notes'));
+    return view('front-end.nhome.home',compact('carousels','showLessons','classes','courses','notes'));
 });Route::get('/testing',function(){	return "Hello World";});Route::get('/teesting',function(){	return "Hello World";});
 
 Route::get('/contactUs', function() {
