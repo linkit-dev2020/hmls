@@ -1,0 +1,4 @@
+https://docs.mapbox.com/help/tutorials/#access-tokens
+
+map select location:
+http://thisinterestsme.com/google-maps-api-location-picker-example/

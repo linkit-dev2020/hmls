@@ -1,0 +1,212 @@
+GET http://localhost:8000/api/getUnits/664
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:8000/api/getUnits/664
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:8000/api/getUnits/664
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-06T042959.500.html
+
+###
+
+GET http://localhost:8000/6
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-06T042954.404.html
+
+###
+
+GET http://localhost:8000/api/getUnits/66
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-06T042939.200.html
+
+###
+
+GET http://localhost:8000/api/getUnits/66
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-06T042937.200.html
+
+###
+
+GET http://localhost:8000/api/getUnits/66
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-06T042922.200.html
+
+###
+
+GET http://localhost:8000/api/getUnits/55
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-06T042912.500.html
+
+###
+
+GET http://localhost:8000/api/getSubjects/49
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-06T042904.200.html
+
+###
+
+GET http://localhost:8000/api/getUnits/101
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:8000/api/getSubjects/44
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-06T042811.200.html
+
+###
+
+GET http://localhost:8000/api/getSubjects/43
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-06T042809.200.html
+
+###
+
+GET http://localhost:8000/api/getSubjects/43
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-06T042806.200.html
+
+###
+
+GET http://localhost:8000/api/getSubjects/4
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-06T042757.500.html
+
+###
+
+GET http://localhost:8000/api/getUnits/112
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:8000/api/getUnits/112
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:8000/api/getUnits/112
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-06T042717.404.html
+
+###
+
+GET http://localhost:8000/api/getSubjects/43
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-06T041700.200.html
+
+###
+
+GET http://localhost:8000/api/getSubjects/43
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-06T041651.200.html
+
+###
+
+GET http://localhost:8000/api/getSubjects/43
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-06T041630.200.html
+
+###
+
+GET http://localhost:8000/api/getSubjects/43
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-06T041617.500.html
+
+###
+
+GET http://localhost:8000/api/getSubjects/43
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-06T041550.500.html
+
+###
+
+GET http://localhost:8000/api/getSubjects\/43
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:8000/api/getSubjects/43
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-06T041326.200.json
+
+###
+
+GET http://localhost:8000/api
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-06T041319.404.html
+
+###
+
+GET http://localhost:8080/api
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:8080/api/getSubjects/
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:8080/api/getSubjects/43
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:8080/api/getsubjects/43
+Accept: */*
+Cache-Control: no-cache
+
+###
+

@@ -1,0 +1,31 @@
+marquee {
+    color: #292929;
+    font-size: 18px;
+}
+
+.fh5co-nav ul li a {
+    font-size: 18px;
+    padding: 30px 15px;
+    color: #fff;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+
+#fh5co-footer .fh5co-footer-links {
+    font-size: 2rem;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-row {
+    display: flex;
+    align-items: baseline;
+    font-family: 'Changa', sans-serif;
+}
+
+.fh5co-nav .top {
+    background: #fefefe;
+    padding: 7px 0;
+    margin-bottom: 0;
+}
