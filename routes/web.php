@@ -34,7 +34,7 @@ Route::get('course',function()
 {
     $courses =\App\Course::all()->sortBy('order_num');
     return view('front-end.nhome.course',compact('courses'));
-	
+
 });
 
 Route::get('/contact',function()
@@ -88,10 +88,10 @@ Route::get('classes',
 ->name('class.index');
 
 
-//Show Active Courses Only 
-//TODO display courses depending on the Role of the user 
+//Show Active Courses Only
+//TODO display courses depending on the Role of the user
 
-//Show The Form to Create New Class 
+//Show The Form to Create New Class
 Route::get('classes/create',
 ['uses' => 'ClassRoom\ClassesController@create',
 'middleware' => 'roles',
@@ -99,7 +99,7 @@ Route::get('classes/create',
 ])
 ->name('class.create');
 
-//Show One Class 
+//Show One Class
 Route::get('classes/{class}',
 ['uses' => 'ClassRoom\ClassesController@show',
 'middleware' => 'roles',
@@ -108,7 +108,7 @@ Route::get('classes/{class}',
 ->name('class.show');
 
 
-//Store the new Class in the database 
+//Store the new Class in the database
 Route::post('classes',
 ['uses' => 'ClassRoom\ClassesController@store',
 'middleware' => 'roles',
@@ -125,7 +125,7 @@ Route::get('classes/{class}/edit',
 ->name('class.edit');
 
 
-//Update A Class 
+//Update A Class
 Route::patch('classes/{class}/',
 ['uses' => 'ClassRoom\ClassesController@update',
 'middleware' => 'roles',
@@ -133,7 +133,7 @@ Route::patch('classes/{class}/',
 ])
 ->name('class.update');
 
-//Delete A Class 
+//Delete A Class
 Route::delete('classes/{class}',
 ['uses' => 'ClassRoom\ClassesController@destroy',
 'middleware' => 'roles',
@@ -150,7 +150,7 @@ Route::post('classes/{class}/setFree',
 ->name('class.free');
 
 
-//endpoint to make the class priced 
+//endpoint to make the class priced
 Route::post('classes/{class}/setPriced',
 ['uses' => 'ClassRoom\ClassesController@priced',
 'middleware' => 'roles',
@@ -216,7 +216,7 @@ Route::get('mycourses',
     ])
     ->name('course.mycourses');
 
-//Create A Form to store new Course 
+//Create A Form to store new Course
 Route::get('courses/create',
 ['uses' => 'Course\CoursesController@create',
 'middleware' => 'roles',
@@ -224,7 +224,7 @@ Route::get('courses/create',
 ])
     ->name('course.create');
 
-//Post Course 
+//Post Course
 Route::post('courses',
 ['uses' => 'Course\CoursesController@store',
 'middleware' => 'roles',
@@ -232,7 +232,7 @@ Route::post('courses',
 ])
     ->name('course.store');
 
-//Show A Single Course 
+//Show A Single Course
 Route::get('courses/{course}',
 ['uses' => 'Course\CoursesController@show',
 'middleware' => 'roles',
@@ -262,7 +262,7 @@ Route::get('courses/{course}/edit',
     ->name('course.edit');
 
 
-//Update A Course 
+//Update A Course
 Route::patch('courses/{course}',
 ['uses' => 'Course\CoursesController@update',
 'middleware' => 'roles',
@@ -271,7 +271,7 @@ Route::patch('courses/{course}',
     ->name('course.update');
 
 
-//Activate A Course 
+//Activate A Course
 Route::post('courses/{course}/activate',
 ['uses' => 'Course\CoursesController@activate',
 'middleware' => 'roles',
@@ -279,7 +279,7 @@ Route::post('courses/{course}/activate',
 ])
     ->name('course.activate');
 
-//Deactivate A Course 
+//Deactivate A Course
 Route::post('courses/{course}/deactivate',
 ['uses' => 'Course\CoursesController@deactivate',
 'middleware' => 'roles',
@@ -287,7 +287,7 @@ Route::post('courses/{course}/deactivate',
 ])
     ->name('course.deactivate');
 
-    //Show The Form to add Lesson to Course 
+    //Show The Form to add Lesson to Course
 Route::get('courses/{course}/addlesson',
 ['uses' => 'Course\CoursesController@addLesson',
 'middleware' => 'roles',
@@ -344,19 +344,19 @@ Route::post('courses/{course}/deleteteacher',
     'roles' => [\App\Role::ADMIN,\App\Role::MANAGER
     ]])
     ->name('course.deletestudent');
-	
+
 	Route::post('courses/{course}/deleteallstudents',
     ['uses' => 'Course\CoursesController@deleteAllStudents',
     'middleware' => 'roles',
     'roles' => [\App\Role::ADMIN,\App\Role::MANAGER
     ]])
     ->name('course.deleteAllStudents');
-    
+
 /**
  * Subjects endpoints
  */
 
-//Show All Subjects 
+//Show All Subjects
 Route::get('/subjects',
 ['uses' => 'Subject\SubjectsController@index',
 'middleware' => 'roles',
@@ -365,7 +365,7 @@ Route::get('/subjects',
 ->name('subject.index');
 
 
-//Show The Form to Create A New Subject 
+//Show The Form to Create A New Subject
 Route::get('subjects/create',
 ['uses' => 'Subject\SubjectsController@create',
 'middleware' => 'roles',
@@ -373,7 +373,7 @@ Route::get('subjects/create',
 ])
     ->name('subject.create');
 
-//Show A Single Subject 
+//Show A Single Subject
 Route::get('subjects/{subject}',
 ['uses' => 'Subject\SubjectsController@show',
 'middleware' => 'roles',
@@ -382,7 +382,7 @@ Route::get('subjects/{subject}',
 ->name('subject.show');
 
 
-//DELETE A Subject 
+//DELETE A Subject
 Route::delete('subjects/{subject}',
     ['uses' => 'Subject\SubjectsController@destroy',
     'middleware' => 'roles',
@@ -392,7 +392,7 @@ Route::delete('subjects/{subject}',
 
 
 
-//Store Subject 
+//Store Subject
 Route::post('subjects',
 ['uses' => 'Subject\SubjectsController@store',
 'middleware' => 'roles',
@@ -401,7 +401,7 @@ Route::post('subjects',
 ->name('subject.store');
 
 
-//Edit A Subject 
+//Edit A Subject
 Route::get('subjects/{subject}/edit',
 ['uses' => 'Subject\SubjectsController@edit',
 'middleware' => 'roles',
@@ -410,7 +410,7 @@ Route::get('subjects/{subject}/edit',
 ->name('subject.edit');
 
 
-//Update A Subject 
+//Update A Subject
 Route::put('subjects/{subject}',
 ['uses' => 'Subject\SubjectsController@update',
 'middleware' => 'roles',
@@ -419,7 +419,7 @@ Route::put('subjects/{subject}',
 ->name('subject.update');
 
 
-//Activate A Subject 
+//Activate A Subject
 Route::post('subjects/{subject}/activate',
 ['uses' => 'Subject\SubjectsController@activate',
 'middleware' => 'roles',
@@ -429,7 +429,7 @@ Route::post('subjects/{subject}/activate',
 
 
 
-//Deactivate A Subject 
+//Deactivate A Subject
 Route::post('subjects/{subject}/deactivate',
 ['uses' => 'Subject\SubjectsController@deactivate',
 'middleware' => 'roles',
@@ -472,8 +472,8 @@ Route::post('subjects/{subject}/detachTest',
  * Units endpoints
  */
 
- //Index Units 
- //Display All Units 
+ //Index Units
+ //Display All Units
  Route::get('units',
  ['uses' => 'Unit\UnitsController@index',
 'middleware' => 'roles',
@@ -482,7 +482,7 @@ Route::post('subjects/{subject}/detachTest',
     ->name('unit.index');
 
 
-//Delete A Unit 
+//Delete A Unit
 Route::delete('units/{unit}',
 ['uses' => 'Unit\UnitsController@destroy',
 'middleware' => 'roles',
@@ -492,12 +492,12 @@ Route::delete('units/{unit}',
 
 
 
-//Show All Classes to choose A Class to create A Unit in it 
+//Show All Classes to choose A Class to create A Unit in it
 
 Route::get('units/create','Unit\UnitsController@chooseClass');
 
 
-//Show The Form to create a New Unit 
+//Show The Form to create a New Unit
 Route::get('units/create',
 ['uses' => 'Unit\UnitsController@create',
 'middleware' => 'roles',
@@ -505,7 +505,7 @@ Route::get('units/create',
 ])
     ->name('unit.create');
 
-//Store The Unit 
+//Store The Unit
 Route::post('units',
 ['uses' => 'Unit\UnitsController@store',
 'middleware' => 'roles',
@@ -514,7 +514,7 @@ Route::post('units',
 ->name('unit.store');
 
 
-//Show The Form to edit A Unit 
+//Show The Form to edit A Unit
 Route::get('units/{unit}/edit',
 ['uses' => 'Unit\UnitsController@edit',
 'middleware' => 'roles',
@@ -522,7 +522,7 @@ Route::get('units/{unit}/edit',
 ])
     ->name('unit.edit');
 
-//Update The Unit 
+//Update The Unit
 Route::put('units/{unit}',
 ['uses' => 'Unit\UnitsController@update',
 'middleware' => 'roles',
@@ -530,7 +530,7 @@ Route::put('units/{unit}',
 ])
 ->name('unit.update');
 
-//Show A Unit 
+//Show A Unit
 Route::get('units/{unit}',
 ['uses' => 'Unit\UnitsController@show',
 'middleware' => 'roles',
@@ -538,7 +538,7 @@ Route::get('units/{unit}',
 ])
     ->name('unit.show');
 
-//Activate A unit 
+//Activate A unit
 Route::post('units/{unit}/activate',
 ['uses' => 'Unit\UnitsController@activate',
 'middleware' => 'roles',
@@ -546,7 +546,7 @@ Route::post('units/{unit}/activate',
 ])
     ->name('unit.activate');
 
-//Deactivate The unit 
+//Deactivate The unit
 Route::post('units/{unit}/deactivate',
 ['uses' => 'Unit\UnitsController@deactivate',
 'middleware' => 'roles',
@@ -554,7 +554,7 @@ Route::post('units/{unit}/deactivate',
 ])
 ->name('unit.deactivate');
 
-//Show The Form to add Lesson to Unit 
+//Show The Form to add Lesson to Unit
 // Route::get('units/{unit}/addlesson','Unit\UnitsController@addLesson')
 //     ->name('unit.addlesson');
 
@@ -576,13 +576,13 @@ Route::post('units/{unit}/detachlesson',
 
 
 
-/* Carousels Endpoints */ 
+/* Carousels Endpoints */
 Route::get('carousels',
 ['uses' => 'Carousel\CarouselsController@index',
 'middleware' => 'roles',
 'roles' => [\App\Role::ADMIN,\App\Role::MANAGER]])->name('carousel.index');
 
-//Show the form to create a new carousel 
+//Show the form to create a new carousel
 Route::get('carousels/create',
 ['uses' => 'Carousel\CarouselsController@create',
 'middleware' => 'roles',
@@ -591,7 +591,7 @@ Route::get('carousels/create',
 ->name('carousel.create');
 
 
-//Show The Form to Edit Carousel 
+//Show The Form to Edit Carousel
 Route::get('carousels/{carousel}/edit',
 ['uses' => 'Carousel\CarouselsController@edit',
 'middleware' => 'roles',
@@ -599,7 +599,7 @@ Route::get('carousels/{carousel}/edit',
 ]])
     ->name('carousel.edit');
 
-//Show Single Carousel 
+//Show Single Carousel
 Route::get('carousels/{carousel}',
 ['uses' => 'Carousel\CarouselsController@show',
 'middleware' => 'roles',
@@ -607,7 +607,7 @@ Route::get('carousels/{carousel}',
 ]])
 ->name('carousel.show');
 
-//Delete A Carousel 
+//Delete A Carousel
 Route::delete('carousels/{carousel}',
 ['uses' => 'Carousel\CarouselsController@destroy',
 'middleware' => 'roles',
@@ -615,7 +615,7 @@ Route::delete('carousels/{carousel}',
 ]])
 ->name('carousel.destroy');
 
-//Store A Carousel 
+//Store A Carousel
 Route::post('carousels',
 ['uses' => 'Carousel\CarouselsController@store',
 'middleware' => 'roles',
@@ -623,7 +623,7 @@ Route::post('carousels',
 ]])
 ->name('carousel.store');
 
-//Update Carousel 
+//Update Carousel
 Route::put('carousels/{carousel}',
 ['uses' => 'Carousel\CarouselsController@update',
 'middleware' => 'roles',
@@ -633,8 +633,8 @@ Route::put('carousels/{carousel}',
 
 
 
-//Index Show Lesson 
- //Display All show lessons 
+//Index Show Lesson
+ //Display All show lessons
  Route::get('showlessons',
  ['uses' => 'ShowLesson\ShowLessonsController@index',
 'middleware' => 'roles',
@@ -642,7 +642,7 @@ Route::put('carousels/{carousel}',
 ]])
     ->name('showlesson.index');
 
-//Show The Form to create a New ShowLesson 
+//Show The Form to create a New ShowLesson
 Route::get('showlessons/create',
 ['uses' => 'ShowLesson\ShowLessonsController@create',
 'middleware' => 'roles',
@@ -650,7 +650,7 @@ Route::get('showlessons/create',
 ]])
     ->name('showlesson.create');
 
-    //Show A showlesson 
+    //Show A showlesson
 Route::get('showlessons/{showLesson}',
 ['uses' => 'ShowLesson\ShowLessonsController@show',
 'middleware' => 'roles',
@@ -666,7 +666,7 @@ Route::post('showlessons',
 ]])
 ->name('showlesson.store');
 
-//Show The Form to Edit a ShowLesson 
+//Show The Form to Edit a ShowLesson
 Route::get('showlessons/{showLesson}/edit',
 ['uses' => 'ShowLesson\ShowLessonsController@edit',
 'middleware' => 'roles',
@@ -685,7 +685,7 @@ Route::put('showlessons/{showLesson}',
 
 
 
-//Delete A ShowLesson 
+//Delete A ShowLesson
 Route::delete('showlessons/{showLesson}',
 ['uses' => 'ShowLesson\ShowLessonsController@destroy',
 'middleware' => 'roles',
@@ -726,7 +726,7 @@ Route::delete('showlessons/{showLesson}',
 ]])
     ->name('deneme.store');
 
-    //Show The Form to Edit a Deneme 
+    //Show The Form to Edit a Deneme
 Route::get('denemes/{deneme}/edit',
 ['uses' => 'Deneme\DenemesController@edit',
 'middleware' => 'roles',
@@ -750,7 +750,7 @@ Route::delete('deneme/{deneme}',
 ]])
 ->name('deneme.destroy');
 
-//Activate A Deneme 
+//Activate A Deneme
 Route::post('denemes/{deneme}/activate',
 ['uses' => 'Deneme\DenemesController@activate',
 'middleware' => 'roles',
@@ -758,7 +758,7 @@ Route::post('denemes/{deneme}/activate',
 ]])
     ->name('deneme.activate');
 
-//Deactivate A Deneme 
+//Deactivate A Deneme
 Route::post('denemes/{deneme}/deactivate',
 ['uses' => 'Deneme\DenemesController@deactivate',
 'middleware' => 'roles',
@@ -800,7 +800,7 @@ Route::post('studentthanks',
 ]])
 ->name('studentthank.store');
 
-//Show The Form to Edit a student thank 
+//Show The Form to Edit a student thank
 Route::get('studentthanks/{studentThank}/edit',
 ['uses' => 'StudentThank\StudentThanksController@edit',
 'middleware' => 'roles',
@@ -816,7 +816,7 @@ Route::put('studentthanks/{studentThank}',
 ]])
 ->name('studentthank.update');
 
-//Delete A student thank 
+//Delete A student thank
 Route::delete('studentthanks/{studentThank}',
 ['uses' => 'StudentThank\StudentThanksController@destroy',
 'middleware' => 'roles',
@@ -857,7 +857,7 @@ Route::post('evaluations',
 ]])
 ->name('evaluation.store');
 
-//Show The Form to Edit a Evaluation 
+//Show The Form to Edit a Evaluation
 Route::get('evaluations/{evaluation}/edit',
 ['uses' => 'Evaluation\EvaluationsController@edit',
 'middleware' => 'roles',
@@ -873,7 +873,7 @@ Route::put('evaluations/{evaluation}',
 ]])
 ->name('evaluation.update');
 
-//Delete A Evaluation 
+//Delete A Evaluation
 Route::delete('evaluations/{evaluation}',
 ['uses' => 'Evaluation\EvaluationsController@destroy',
 'middleware' => 'roles',
@@ -881,8 +881,8 @@ Route::delete('evaluations/{evaluation}',
 ]])
     ->name('evaluation.destroy');
 
- 
- 
+
+
     //freereasons index
 Route::get('freereasons',
 ['uses' => 'FreeReason\FreeReasonsController@index',
@@ -931,7 +931,7 @@ Route::put('freereasons/{freeReason}',
 ]])
 ->name('freereason.update');
 
-//Delete A FreeReason 
+//Delete A FreeReason
 Route::delete('freereasons/{freeReason}',
 ['uses' => 'FreeReason\FreeReasonsController@destroy',
 'middleware' => 'roles',
@@ -1005,7 +1005,7 @@ Route::put('tests/{test}',
 ]])
 ->name('test.update');
 
-//Delete A Test 
+//Delete A Test
 Route::delete('tests/{test}',
 ['uses' => 'Test\TestController@destroy',
 'middleware' => 'roles',
@@ -1013,7 +1013,7 @@ Route::delete('tests/{test}',
 ]])
     ->name('test.destroy');
 
-//Activate A Test 
+//Activate A Test
 Route::post('tests/{test}/activate',
 ['uses' => 'Test\TestController@activate',
 'middleware' => 'roles',
@@ -1023,7 +1023,7 @@ Route::post('tests/{test}/activate',
 
 
 
-//Deactivate A Test 
+//Deactivate A Test
 Route::post('tests/{test}/deactivate',
 ['uses' => 'Test\TestController@deactivate',
 'middleware' => 'roles',
@@ -1088,7 +1088,7 @@ Route::put('comments/{comment}',
 ]])
 ->name('comment.update');
 
-//Delete A Comment 
+//Delete A Comment
 Route::delete('comments/{comment}',
 ['uses' => 'Comment\CommentsController@destroy',
 'middleware' => 'roles',
@@ -1145,7 +1145,7 @@ Route::put('replies/{reply}',
 ]])
 ->name('reply.update');
 
-//Delete A Reply 
+//Delete A Reply
 Route::delete('replies/{reply}',
 ['uses' => 'Reply\RepliesController@destroy',
 'middleware' => 'roles',
@@ -1202,7 +1202,7 @@ Route::put('attachments/{attachment}',
 ]])
 ->name('attachment.update');
 
-//Delete A attachment 
+//Delete A attachment
 Route::delete('attachments/{attachment}',
 ['uses' => 'Attachment\AttachmentsController@destroy',
 'middleware' => 'roles',
@@ -1259,7 +1259,7 @@ Route::put('advices/{advice}',
 ]])
 ->name('advice.update');
 
-//Delete An advice 
+//Delete An advice
 Route::delete('advices/{advice}',
 ['uses' =>'Advice\AdvicesController@destroy',
 'middleware' => 'roles',
@@ -1267,7 +1267,7 @@ Route::delete('advices/{advice}',
 ]])
     ->name('advice.destroy');
 
-     //Activate A advice 
+     //Activate A advice
 Route::post('advices/{advice}/activate',
 ['uses' => 'Advice\AdvicesController@activate',
 'middleware' => 'roles',
@@ -1275,7 +1275,7 @@ Route::post('advices/{advice}/activate',
 ]])
 ->name('advice.activate');
 
-//Deactivate A advice 
+//Deactivate A advice
 Route::post('advices/{advice}/deactivate',
 ['uses' => 'Advice\AdvicesController@deactivate',
 'middleware' => 'roles',
@@ -1353,7 +1353,7 @@ Route::put('lessons/{lesson}',
 ]])
 ->name('lesson.updatetype');*/
 
-//Delete An lesson 
+//Delete An lesson
 Route::delete('lessons/{lesson}',
 ['uses' => 'Lesson\LessonsController@destroy',
 'middleware' => 'roles',
@@ -1361,7 +1361,7 @@ Route::delete('lessons/{lesson}',
 ]])
     ->name('lesson.destroy');
 
-    //Activate A lesson 
+    //Activate A lesson
 Route::post('lessons/{lesson}/activate',
 ['uses' => 'Lesson\LessonsController@activate',
 'middleware' => 'roles',
@@ -1369,7 +1369,7 @@ Route::post('lessons/{lesson}/activate',
 ]])
 ->name('lesson.activate');
 
-//Deactivate A lesson 
+//Deactivate A lesson
 Route::post('lessons/{lesson}/deactivate',
 ['uses' => 'Lesson\LessonsController@deactivate',
 'middleware' => 'roles',
@@ -1454,7 +1454,7 @@ Route::put('whatsapplinks/{whatsappLink}',
 ]])
 ->name('whatsapplink.update');
 
-//Delete An whatsappLink 
+//Delete An whatsappLink
 Route::delete('whatsapplinks/{whatsappLink}',
 ['uses' => 'WhatsappLink\WhatsappLinksController@destroy',
 'middleware' => 'roles',
@@ -1463,7 +1463,7 @@ Route::delete('whatsapplinks/{whatsappLink}',
     ->name('whatsapplink.destroy');
 
 //Ajax Dropdown
-Route::get('dropdownlist/getdata/{type}','WhatsappLink\WhatsappLinksController@getData'); 
+Route::get('dropdownlist/getdata/{type}','WhatsappLink\WhatsappLinksController@getData');
 
 
 //auth routes
@@ -1510,7 +1510,7 @@ Route::get('students/class/{id}',
         'roles' => [\App\Role::ADMIN,App\Role::MANAGER
         ]])
     ->name('users.getbyclass');
-     
+
      //user create route
      Route::get('users/create',
      ['uses' => 'User\UsersController@create',
@@ -1518,7 +1518,7 @@ Route::get('students/class/{id}',
 'roles' => [\App\Role::ADMIN,\App\Role::MANAGER
 ]])
      ->name('users.create');
-     
+
      //user show route
      Route::get('users/{user}',
      ['uses' => 'User\UsersController@show',
@@ -1526,7 +1526,7 @@ Route::get('students/class/{id}',
 'roles' => [\App\Role::ADMIN,\App\Role::MANAGER
 ]])
      ->name('users.show');
-     
+
      //store user route
      Route::post('users',
      ['uses' => 'User\UsersController@store',
@@ -1534,7 +1534,7 @@ Route::get('students/class/{id}',
 'roles' => [\App\Role::ADMIN,\App\Role::MANAGER
 ]])
      ->name('users.store');
-     
+
      //Show The Form to Edit an user
      Route::get('users/{user}/edit',
      ['uses' => 'User\UsersController@edit',
@@ -1542,7 +1542,7 @@ Route::get('students/class/{id}',
 'roles' => [\App\Role::ADMIN,\App\Role::MANAGER
 ]])
          ->name('users.edit');
-     
+
          //update user route
      Route::put('users/{user}',
      ['uses' => 'User\UsersController@update',
@@ -1550,8 +1550,8 @@ Route::get('students/class/{id}',
 'roles' => [\App\Role::ADMIN,\App\Role::MANAGER
 ]])
      ->name('users.update');
-     
-     //Delete A user 
+
+     //Delete A user
      Route::delete('users/{user}',
      ['uses' => 'User\UsersController@destroy',
 'middleware' => 'roles',
@@ -1559,7 +1559,7 @@ Route::get('students/class/{id}',
 ]])
          ->name('users.destroy');
 
-         //Deactivate A user 
+         //Deactivate A user
 Route::post('users/{user}/deactivate',
 ['uses' => 'User\UsersController@deactivate',
 'middleware' => 'roles',
@@ -1575,7 +1575,7 @@ Route::post('users/{user}/activate',
 ->name('users.activate');
 
 
-//Delete and approve A student request to class 
+//Delete and approve A student request to class
 Route::delete('classrequests/{classrequest}',
 ['uses' => 'Requests\ClassRequestsController@accept',
 'middleware' => 'roles',
@@ -1592,14 +1592,14 @@ Route::delete('classrequestsremove/{classrequest}',
         ]])
     ->name('classrequest.remove');
 
-//show classes requests 
+//show classes requests
 Route::get('classrequests',
 ['uses' => 'Requests\ClassRequestsController@index',
 'middleware' => 'roles',
 'roles' => [\App\Role::ADMIN,\App\Role::MANAGER
 ]])
     ->name('classrequest.index');
-    
+
 Route::get('myclasses',
     ['uses' => 'ClassRoom\ClassesController@myclasses',
         'middleware' => 'roles',
@@ -1625,7 +1625,7 @@ Route::post('classrequests',
 
 
 
-    //Delete and approve A student request to course 
+    //Delete and approve A student request to course
 Route::delete('courseRequests/{courserequest}',
     ['uses' => 'Requests\CourseRequestsController@accept',
         'middleware' => 'roles',
@@ -1640,8 +1640,8 @@ Route::delete('courseRequestsremove/{courserequest}',
         ]])
     ->name('courserequest.remove');
 
-    
-//show coursees requests 
+
+//show coursees requests
 Route::get('courserequests',
 ['uses' => 'Requests\CourseRequestsController@index',
 'middleware' => 'roles',
@@ -1666,7 +1666,7 @@ Route::post('courserequests',
 'roles' => [\App\Role::ADMIN,App\Role::MANAGER,2,3
 ]])
      ->name('notes.index');
-     
+
      //note create route
      Route::get('notes/create',
      ['uses' => 'Note\NotesController@create',
@@ -1674,7 +1674,7 @@ Route::post('courserequests',
 'roles' => [\App\Role::ADMIN,\App\Role::MANAGER
 ]])
      ->name('notes.create');
-     
+
      //note show route
      Route::get('notes/{note}',
      ['uses' => 'Note\NotesController@show',
@@ -1682,7 +1682,7 @@ Route::post('courserequests',
 'roles' => [\App\Role::ADMIN,\App\Role::MANAGER,2,3
 ]])
      ->name('notes.show');
-     
+
      //store note route
      Route::post('notes',
      ['uses' => 'Note\NotesController@store',
@@ -1690,7 +1690,7 @@ Route::post('courserequests',
 'roles' => [\App\Role::ADMIN,\App\Role::MANAGER
 ]])
      ->name('notes.store');
-     
+
      //Show The Form to Edit an note
      Route::get('notes/{note}/edit',
      ['uses' => 'Note\NotesController@edit',
@@ -1698,7 +1698,7 @@ Route::post('courserequests',
 'roles' => [\App\Role::ADMIN,\App\Role::MANAGER
 ]])
          ->name('notes.edit');
-     
+
          //update note route
      Route::put('notes/{note}',
      ['uses' => 'Note\NotesController@update',
@@ -1706,8 +1706,8 @@ Route::post('courserequests',
 'roles' => [\App\Role::ADMIN,\App\Role::MANAGER
 ]])
      ->name('notes.update');
-     
-     //Delete A note 
+
+     //Delete A note
      Route::delete('notes/{note}',
      ['uses' => 'Note\NotesController@destroy',
 'middleware' => 'roles',
