@@ -16,8 +16,8 @@
       </div>
     </div>
   </div>
-  
-  
+
+
 
   @if (Auth::user()->hasRole(0))
   <div id="table" class="row">
@@ -31,14 +31,14 @@
           </div>
           <table class="table table-bordered table-hover table-width">
             <thead>
-              <tr> 
+              <tr>
                 <th>اسم المستخدم</th>
                 <th>الحالة</th>
-                
-                <th> رقم الكملك  </th>
+
+                <th>الايميل </th>
                 <th>رقم الهاتف</th>
                 <th>تاريخ الإضافة</th>
-                
+
                 <th>عرض</th>
                 <th>تعديل</th>
                 <th>حذف</th>
@@ -56,7 +56,7 @@
                     <a herf="javascript:;" class="" onclick="$('#{{$manager->id+1}}').click();" >
                       <i class="fa fa-check-circle" aria-hidden="true" style="font-size:18px;color:#5cb85c;cursor: pointer;"></i>
                     </a>
-                  </form> 
+                  </form>
                   @else
                   <form action="{{ route('users.activate', $manager) }}" method="POST" id="activateForm">
                     {!! csrf_field() !!}
@@ -65,12 +65,12 @@
                       <i class="fa fa-times-circle" aria-hidden="true" style="font-size:18px;color:#dd4b39;cursor: pointer;"></i>
                     </a>
                   </form>
-                  @endif          
+                  @endif
                 </td>
                 <td>{{$manager->tc}}</td>
-                
+
                 <td>{{$manager->phone}}</td>
-                
+
                 <td>{{$manager->created_at}}</td>
                   <td>
                   <div class="operations show">
@@ -86,12 +86,12 @@
                   <div class="operations delete">
                     <form action="{{ route('users.destroy',['user' => $manager->id]) }}" method="POST" id="deleteForm">
                       {!! csrf_field() !!}
-                      <input type="hidden" name="_method" value="DELETE">    
+                      <input type="hidden" name="_method" value="DELETE">
                       <button id="del{{$manager->id}}" class=" btn-xs delete-button" style="display:none;"></button>
                       <a herf="javascript:;" class="" onclick="$('#del{{$manager->id}}').click();" >
                         <i class="fa fa-trash" style="font-size:18px;color:#dd4b39"></i>
                       </a>
-                    </form>       
+                    </form>
                   </div>
                 </td>
               </tr>
@@ -104,9 +104,9 @@
   </div>
   @endif
 
-  
 
-  
+
+
 
 </div>
 

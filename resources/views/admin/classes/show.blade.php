@@ -2,7 +2,7 @@
 
 @section('content')
 
-<?php 
+<?php
     $subjects= $class->subjects;
 ?>
 <style>
@@ -77,7 +77,7 @@
 
         </div>
         <div class="col-lg-6">
-          <a href="{{route('class.index')}}" class="btn btn-primary button-margin-header custom-but pull-left" > إدارة كافة الصفوف
+          <a href="{{route('class.index')}}" class="btn btn-primary button-margin-header custom-but pull-left" > إدارة كافة البرامج
             <i class="fa fa-angle-double-left" aria-hidden="true" style="font-size: 20px;"></i>
           </a>
         </div>
@@ -97,7 +97,7 @@
             {!! csrf_field() !!}
             <input type="hidden" name="class_id" value="{{$class->id}}">
             <a href="#" class="btn btn-success button-margin-header custom-but"
-               onclick="document.getElementById('makeClassFreeForm').submit();"> طلب انضمام لهذا الصف</a>
+               onclick="document.getElementById('makeClassFreeForm').submit();"> طلب انضمام لهذا البرنامج</a>
           </form>
         </div>
         <div class="col-lg-6">
@@ -118,11 +118,8 @@
     display: flex;
     align-items: center;">
           <li class="active"><a data-toggle="tab" href="#home">المواد الدراسية</a></li>
-         <!-- <li><a data-toggle="tab" onclick="pauseAllAudio()" href="#menu1">المدرسون</a></li> -->
-          <li><a data-toggle="tab" onclick="" href="#menu2">النصائح</a></li>
-		  <li><a data-toggle="tab" onclick="pauseAllAudio()" href="#menu3">الدينمي</a></li>
-		  <li><a data-toggle="tab" onclick="pauseAllAudio()" href="#menu4">طلاب الصف</a></li>
-		  
+		  <li><a data-toggle="tab" onclick="pauseAllAudio()" href="#menu4">طلاب البرنامج</a></li>
+
         </ul>
 		<script>
 			function pauseAllAudio()
@@ -135,7 +132,7 @@
 					var src=ifrms[i].src;
 					ifrms[i].src="";
 					ifrms[i].src=src;
-					
+
 				}
 			}
 		</script>
@@ -251,7 +248,7 @@
                     <div class="card-body">
                       <div class="content-header">
                         <h2>
-                          <small><i class="fa fa-graduation-cap" aria-hidden="true" style="font-size:24px;"></i> إضافة مدرس لهذا الصف</small>
+                          <small><i class="fa fa-graduation-cap" aria-hidden="true" style="font-size:24px;"></i> إضافة مدرس لهذا البرنامج</small>
                         </h2>
                       </div>
 
@@ -455,8 +452,8 @@
               </div>
             </div>
           </div>
-		  
-		  
+
+
 		  <div id="menu4" class="tab-pane fade">
             <div id="table" class="row">
               <div class="col-lg-12 col-md-12 col-sm-12 col-m-u">
@@ -467,9 +464,9 @@
                         <small><i class="fa fa-graduation-cap" aria-hidden="true" style="font-size:24px;"></i>طلاب الصف</small>
                       </h2>
 					  <form action="{{ route('class.deleteAllStudents',['class' => $class->id]) }}" method="POST" id="deleteForm">
-									{!! csrf_field() !!}					
+									{!! csrf_field() !!}
 									<input type="submit" class="btn btn-danger"  value="فصل جميع الطلاب" />
-					   </form> 
+					   </form>
                     </div>
                     <table class="table table-bordered table-hover table-width">
                       <thead>
@@ -479,7 +476,7 @@
                       </tr>
                       </thead>
                       <tbody>
-					
+
                       @foreach($students as $st)
                         <tr>
                           <td>{{$st->full_name}}</td>
@@ -487,9 +484,9 @@
                             <div class="operations delete">
 								<form action="{{ route('class.deletestudent',['class' => $class->id]) }}" method="POST" id="deleteForm">
 									{!! csrf_field() !!}
-									<input type="hidden" name="student_id" value="{{$st->id}}">     
+									<input type="hidden" name="student_id" value="{{$st->id}}">
 									<button class="fa fa-trash"  style="border:none; font-size:18px;color:#dd4b39;cursor: pointer;" > </button>
-								</form> 
+								</form>
                             </div>
                           </td>
                         </tr>

@@ -54,11 +54,11 @@
           </div>
           <table id="myTable" class="table table-bordered table-hover table-width">
             <thead>
-              <tr> 
+              <tr>
                 <th>اسم المستخدم</th>
                 <th>الحالة</th>
-                
-                <th>رقم الكملك  </th>
+
+                <th>الايميل  </th>
                 <th>رقم الهاتف</th>
                 <!-- <th>تاريخ الإضافة</th> -->
                 <th>عرض </th>

@@ -8,7 +8,7 @@
     <div class="row">
       <div class="col-lg-4">
         <div class="content-header">
-         <h1><small><i class="fa fa-cogs" aria-hidden="true" style="font-size:26px;"></i> إدارة الصفوف</small></h1>
+         <h1><small><i class="fa fa-cogs" aria-hidden="true" style="font-size:26px;"></i> إدارة البرامج</small></h1>
         </div>
       </div>
       <div class="col-lg-2">
@@ -21,26 +21,26 @@
     <div class="row">
       <div class="col-lg-8">
         <div class="content-header">
-            <h1><small><i class="fa fa-cogs" aria-hidden="true" style="font-size:26px;"></i>  الصفوف الدراسيةالمنضم اليها</small></h1>
+            <h1><small><i class="fa fa-cogs" aria-hidden="true" style="font-size:26px;"></i>  البرامج الدراسيةالمنضم اليها</small></h1>
         </div>
       </div>
     </div>
   </div>
   @endif
-  
+
   <div id="table" class="row">
     <div class="col-lg-8">
       <div class="card table-cards color-grey">
         <div class="card-body">
           <div class="content-header">
             <h2>
-              <small><i class="fa fa-graduation-cap" aria-hidden="true" style="font-size:24px;"></i> الصفوف الدراسية</small>
+              <small><i class="fa fa-graduation-cap" aria-hidden="true" style="font-size:24px;"></i> البرامج الدراسية</small>
             </h2>
           </div>
           <table class="table table-bordered table-hover table-width">
             <thead>
-              <tr> 
-                <th>الصف الدراسي</th>
+              <tr>
+                <th>البرنامج الدراسي</th>
                 @if(Auth::user()->hasAnyRole([0,1]))
                 <th>المجانية</th>
                 @endif
@@ -81,12 +81,12 @@
                   <div class="operations delete">
                     <form action="{{ route('class.destroy',['class' => $class->id]) }}" method="POST" id="deleteForm">
                       {!! csrf_field() !!}
-                      <input type="hidden" name="_method" value="DELETE">    
+                      <input type="hidden" name="_method" value="DELETE">
                       <button id="button{{$class->id}}" class=" btn-xs delete-button" style="display:none;"></button>
                       <a herf="javascript:;"  id="a{{$class->id}}" onclick="sweetAlert('a{{$class->id}}', 'button{{$class->id}}')"  >
                         <i class="fa fa-trash" style="font-size:18px;color:#dd4b39"></i>
                       </a>
-                    </form>       
+                    </form>
                   </div>
                 </td>
                   <td>{{$class->created_at}}</td>

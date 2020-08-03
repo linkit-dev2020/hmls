@@ -98,7 +98,7 @@
                                     @if (Auth::user()->hasRole(0) || Auth::user()->hasRole(1))
                                         <th>التفعيل</th>
                                     @endif
-                                    <th>الصف</th>
+                                    <th>البرنامج</th>
                                     <th>عدد الوحدات الدراسية</th>
                                     @if (Auth::user()->hasRole(0) || Auth::user()->hasRole(1))
                                     <th>قابلية التنزيل</th>

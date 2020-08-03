@@ -16,9 +16,9 @@ class UsersController extends Controller
 
     public function __construct()
     {
-    
+
     $this->middleware('auth');
-    
+
     }
     /**
      * Display a listing of the resource.
@@ -30,7 +30,7 @@ class UsersController extends Controller
         $managers = User::whereHas('roles', function ($query)  {
             $query->where('role', '=', 1);
         })->get();
-        
+
         return view('admin.users.indexmanager',compact('managers'));
     }
 
@@ -48,7 +48,7 @@ class UsersController extends Controller
         $students = User::whereHas('roles', function ($query)  {
             $query->where('role', '=', 3);
         })->get();
-        
+
         return view('admin.users.indexstudent',compact('students'));
     }
 
@@ -75,7 +75,6 @@ class UsersController extends Controller
             'password' => 'required',
 
             'phone' => 'required',
-            'tc' => 'required|max:15|min:11|unique:users',
             'role' => 'required',
         ]);
 
@@ -85,18 +84,18 @@ class UsersController extends Controller
         //$user->full_name = $request->full_name;
         $user->email = time().'@hh.com';
         $user->phone = $request->phone;
-        
+
         $user->tc = $request->tc;
         $user->active=$request->active;
         $user->save();
-        
-        
+
+
           //$role = Role::where('role',0)->get();
           $user->roles()->attach(Role::where('role',$request->role)->get());
-        
+
 
           //dd($request->role);
-        //Return redirect 
+        //Return redirect
         if($request->role === "1")
         {
         return redirect()
@@ -106,7 +105,7 @@ class UsersController extends Controller
 
         if($request->role === "2")
         {
-            
+
         return redirect()
             ->route('users.indexteacher')
             ->with('success', 'تم اضافة مدرس بنجاح');
@@ -137,7 +136,7 @@ class UsersController extends Controller
      * @param  App\User  $user
      * @return \Illuminate\Http\Response
      */
-     
+
     public function edit(User $user)
     {
         return view ('admin.users.edit',compact('user'));
@@ -155,26 +154,26 @@ class UsersController extends Controller
         $request->validate([
             'username' => 'required',
             'password' => 'required',
-            
-            
+
+
             'phone' => 'required',
-            'tc' => 'required|max:15|min:11',
-            
+
+
         ]);
 
-        $oldPassword = $user->passsword ;     
-        
+        $oldPassword = $user->passsword ;
+
         $user->username = $request->username;
         if($request->password != $oldPassword)
         $user->password = bcrypt($request->password);
-        
+
         //$user->email = $request->email;
         $user->phone = $request->phone;
         $user->tc = $request->tc;
         $user->save();
-        
 
-        //Return redirect 
+
+        //Return redirect
         if($user->hasRole(1))
         {
         return redirect()
@@ -184,7 +183,7 @@ class UsersController extends Controller
 
         if($user->hasRole(2))
         {
-            
+
         return redirect()
             ->route('users.indexteacher')
             ->with('success', 'تم تعديل مدرس بنجاح');
@@ -220,9 +219,9 @@ class UsersController extends Controller
     public function activate(User $user){
 
         $user->active = true;
-        
+
         $user->save();
-        
+
         return redirect()->back()
                 ->with('success','تم تفعيل المستخدم بنجاح');
     }

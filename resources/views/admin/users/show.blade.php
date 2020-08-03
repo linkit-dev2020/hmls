@@ -22,7 +22,7 @@
 
                 <div class="card-body">
 
-                    
+
 
 
 
@@ -36,7 +36,7 @@
 
                         <div class= "row">
 
-                            <h2>رقم الكملك:{{$user->tc}}</h2>
+                            <h2>الايميل:{{$user->tc}}</h2>
 
                         </div>
 
@@ -74,7 +74,7 @@
 
 
 
-                        
+
 
                 </div>
 
@@ -114,13 +114,13 @@
 
                 <tr>
                     @if($user->hasRole(3))
-                        <th>اسم الصف</th>
+                        <th>اسم البرنامج</th>
                     @else
                         <th>اسم المادة</th>
                     @endif
 
                     @if($user->hasRole(3))
-                        <th>فصل المستخدم عن الصف</th>
+                        <th>فصل المستخدم عن البرنامج</th>
                     @else
                         <th>فصل المدرس عن المادة</th>
                     @endif
@@ -143,29 +143,29 @@
 
                     <td>
 
-                    
+
 
                     <div class="operations delete">
 
-                        
+
 
                         <form action="{{ route('class.deletestudent',['class' => $class->id]) }}" method="POST" id="deleteForm">
 
                         {!! csrf_field() !!}
 
-                        
 
-                        <input type="hidden" name="student_id" value="{{$user->id}}">     
+
+                        <input type="hidden" name="student_id" value="{{$user->id}}">
 
                         <input type="submit" class="btn btn-danger" value ="فصل">
 
-                        </form> 
+                        </form>
 
-                         
 
-                             
 
-                        
+
+
+
 
                     </div>
 
@@ -185,7 +185,7 @@
 
                     <td>
 
-                    
+
 
                     <div class="operations delete">
 
@@ -195,9 +195,9 @@
 
                         {!! csrf_field() !!}
 
-                        
 
-                        <input type="hidden" name="teacher_id" value="{{$user->id}}">    
+
+                        <input type="hidden" name="teacher_id" value="{{$user->id}}">
 
                         <input type="submit" class="btn btn-danger" value ="فصل">
 
@@ -243,11 +243,11 @@
 
                 <thead>
 
-                <tr> 
+                <tr>
 
                     <th>اسم الدورة</th>
 
-                    
+
 
                     <th>فصل المستخدم عن الدورة</th>
 
@@ -265,29 +265,29 @@
 
                     <td>{{$course->title}}</td>
 
-                    
 
-                    
+
+
 
                     <td>
 
                     <div class="operations delete">
 
-                         
+
 
                         <form action="{{ route('course.deleteteacher',['course' => $course->id]) }}" method="POST" id="deleteForm">
 
                         {!! csrf_field() !!}
 
-                        
 
-                        <input type="hidden" name="teacher_id" value="{{$user->id}}">    
+
+                        <input type="hidden" name="teacher_id" value="{{$user->id}}">
 
                         <input type="submit" class="btn btn-danger" value ="فصل">
 
-                        </form>     
+                        </form>
 
-                        
+
 
                     </div>
 
@@ -305,29 +305,29 @@
 
                     <td>{{$course->title}}</td>
 
-                    
 
-                    
+
+
 
                     <td>
 
                     <div class="operations delete">
 
-                         
+
 
                         <form action="{{ route('course.deletestudent',['course' => $course->id]) }}" method="POST" id="deleteForm">
 
                         {!! csrf_field() !!}
 
-                        
 
-                        <input type="hidden" name="student_id" value="{{$user->id}}">    
+
+                        <input type="hidden" name="student_id" value="{{$user->id}}">
 
                         <input type="submit" class="btn btn-danger" value ="فصل">
 
-                        </form>     
+                        </form>
 
-                        
+
 
                     </div>
 
@@ -361,7 +361,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="card table-card color-grey">
                 <div class="card-header" style="text-align: right">
-                    اضافة الطالب الى الصف :
+                    اضافة الطالب الى برنامج :
                 </div>
 
                 <div class="card-body">
