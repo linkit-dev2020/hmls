@@ -31,7 +31,7 @@
                             <div class="services-2 d-flex">
                                 <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-reading"></span></div>
                                 <div class="text" style="text-align: right;font-family:ae_AlYermook">
-                                    <h3>المنصة الأولى التي تجمع التعليم الالكتروني الاكاديمي مع الدورات</h3>
+                                    <h3>المنصة الأولى التي تقدم دورات داعمة</h3>
                                 </div>
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                             <div class="services-2 d-flex">
                                 <div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-security"> </span></div>
                                 <div class="text"  style="text-align: right;font-family:ae_AlYermook">
-                                    <h3>منصة متكاملة لجامعة أو مدرسة الكترونية</h3>
+                                    <h3>منصة متكاملة داعمة لعملية التعليم بدورات تخصصية</h3>
                                 </div>
                             </div>
                         </div>

@@ -88,7 +88,12 @@
 
                                 ?>
                                 <?php if($new): ?>
-                                    <span  class="badge badge-primary" style="cursor: pointer"  data-toggle="modal" data-target="#exampleModal" > طلب انضمام</span>
+                                    <span  class="badge badge-primary" style="cursor: pointer" onclick="document.getElementById('request').submit();" > طلب انضمام</span>
+                                    <form id="request" method="post" action="/classrequests">
+                                        <?php echo csrf_field(); ?>
+                                        <input type="hidden" name="class_id" value="<?php echo e($class->id); ?>">
+
+                                    </form>
                                 <?php else: ?>
                                     <div class="badge badge-pill">منضم</div>
                                 <?php endif; ?>
