@@ -121,6 +121,9 @@
                 </div>
 
             </li>
+            <li class="nav-item">
+                <a href="/chats/{{$subject->id}}" >المحادثات</a>
+            </li>
     </ul>
 
     <div id="content-wrapper">
@@ -206,7 +209,7 @@
     });
 </script>
 <!-- Demo scripts for this page-->
-
+@yield('js')
 </body>
 
 </html>
