@@ -8,29 +8,29 @@
     <div class="row">
       <div class="col-lg-4">
         <div class="content-header">
-         <h1><small><i class="fa fa-cogs" aria-hidden="true" style="font-size:26px;"></i> إدارة الإختبارات</small></h1>
+         <h1><small><i class="fa fa-cogs" aria-hidden="true" style="font-size:26px;"></i> إدارة الوظائف</small></h1>
         </div>
       </div>
       <div class="col-lg-2">
-        <a href="{{route('test.create')}}" class="btn btn-success myhover BP" role="button">إضافة إختبار <div><i class="material-icons" style="font-size:16px">add_box</i></div></a>
+        <a href="{{route('test.create')}}" class="btn btn-success myhover BP" role="button">إضافة الوظائف <div><i class="material-icons" style="font-size:16px">add_box</i></div></a>
       </div>
     </div>
-  </div>  
+  </div>
 
   <div id="table" class="row">
-    <div class="card-deck">       
+    <div class="card-deck">
       <div class="col-lg-6">
         <div class="card color-grey">
           <div class="card-body">
-            <div class="card-header">إضافة إختبار</div>
-              
+            <div class="card-header">إضافة وظيفة</div>
+
               <form action="{{route('test.store')}}" enctype="multipart/form-data" method="POST">
                       {!! csrf_field() !!}
                 <div class="form-group">
-                  <label for="test"><h5>اسم الإختبار :</h5></label>
-                  <input type="text" class="form-control" id="test" name="title" required placeholder="عنوان الإختبار الجديد"> 
+                  <label for="test"><h5>اسم الوظيفة :</h5></label>
+                  <input type="text" class="form-control" id="test" name="title" required placeholder="عنوان الإختبار الجديد">
                 </div>
-                <div class="form-group">
+              <!--  <div class="form-group">
                   <label for="termField">الفصل الدراسي :</label>
                   <select class="form-control form-control-select mt-3" id="termField" name="term">
                     <option selected>-- اختر الفصل الدراسي --</option>
@@ -45,9 +45,12 @@
                     <option value="1">الأمتحان الأول</option>
                     <option value="2">الأمتحان الثاني</option>
                   </select>
-                </div>
+                </div>-->
+                <input type="hidden" name="sub_test" value="1"/>
+                <input type="hidden" name="term" value="1"/>
+
            <div class="form-group">
-                  <label for="type">نوع الدرس :</label>
+                  <label for="type">نوع الاختبار :</label>
                   <select class="form-control form-control-select mt-3" name="type" id="test_typeField" onchange="ShitFunction()">
                   <option selected>-- اختر النوع --</option>
                    <option value="video">فيديو</option>
@@ -57,7 +60,7 @@
                    <option value="word">word</option>
                   </select>
                 </div>
-        
+
                 <script>
                     function ShitFunction()
                     {
@@ -140,7 +143,7 @@
                     <option selected>-- اختر المرفقات --</option>
                     @foreach($attachments as $attachment)
                     <option value="{{$attachment->id}}">{{$attachment->name}}</option>
-                    @endforeach 
+                    @endforeach
                   </select>
                 </div> -->
                 <div class="radioG">
@@ -157,10 +160,10 @@
                 <button type="submit" class="btn btn-success myhover">إضافة</button>
                 <a href="{{route('test.index')}}" class="btn btn-default" style="margin-right:5px">إلغاء</a>
               </form>
-              
+
           </div>
         </div>
-      </div>      
+      </div>
     </div>
   </div>
 </div>
