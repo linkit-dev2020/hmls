@@ -1743,3 +1743,7 @@ Route::get('/chats/{id}','ChatController@getConversation');
 Route::get('/chats','ChatController@getConversations');
 Route::post('/chats','ChatController@sendMsg');
 Route::get('/chat/get/{id}','ChatController@getNew');
+
+Route::get('/foo', function () {
+    Artisan::call('storage:link');
+});

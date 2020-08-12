@@ -9,9 +9,6 @@
         <li><a href="<?php echo e(route('class.index')); ?>">التخصصات<i class="fa fa-angle-double-left pull-left"></i></a></li>
         <li><a href="<?php echo e(route('course.index')); ?>">الدورات المجانية<i class="fa fa-angle-double-left pull-left"></i></a></li>
         <li><a href="<?php echo e(route('classrequest.index')); ?>">إدارة طلبات التخصصات<i class="fa fa-angle-double-left pull-left"></i></a></li>
-        <li><a href="<?php echo e(route('test.index')); ?>">الوظائف<i class="fa fa-angle-double-left pull-left"></i></a></li>
-        <li><a href="<?php echo e(route('attachment.index')); ?>">المرفقات<i class="fa fa-angle-double-left pull-left"></i></a></li>
-
         <li><a href="<?php echo e(route('notes.index')); ?>">الاعلانات<i class="fa fa-angle-double-left pull-left"></i></a></li>
 
         <?php endif; ?>
@@ -20,8 +17,6 @@
         <li><a href="<?php echo e(route('users.indexstudent')); ?>"> الطلاب<i class="fa fa-angle-double-left pull-left"></i></a></li>
         <li><a href="<?php echo e(route('class.index')); ?>">التخصصات<i class="fa fa-angle-double-left pull-left"></i></a></li>
         <li><a href="<?php echo e(route('course.index')); ?>"> الدورات المجانية<i class="fa fa-angle-double-left pull-left"></i></a>
-        <li><a href="<?php echo e(route('test.index')); ?>">الأختبارات<i class="fa fa-angle-double-left pull-left"></i></a></li>
-        <li><a href="<?php echo e(route('attachment.index')); ?>">المرفقات<i class="fa fa-angle-double-left pull-left"></i></a></li>
         <li><a href="<?php echo e(route('notes.index')); ?>">الاعلانات<i class="fa fa-angle-double-left pull-left"></i></a></li>
         <?php endif; ?>
         <?php if(Auth::user()->hasRole(2)): ?>
