@@ -11,12 +11,12 @@
     </div>
   </div>
   <div id="table" class="row">
-    <div class="card-deck">       
+    <div class="card-deck">
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="card color-grey">
           <div class="card-body">
             <div class="card-header">اضافة مستخدم جديد <i class="fa fa-plus-square" aria-hidden="true"></i></div>
-              
+
               <form action="<?php echo e(route('users.store')); ?>" method="POST">
                       <?php echo csrf_field(); ?>
 
@@ -43,10 +43,10 @@
                   <input type="password" class="form-control" id="password" name="password" required placeholder="كلمة السر">
                 </div>
 
-           
+
 
                 <div class="form-group">
-                  <label for="tc"><h5>رقم الكملك:</h5></label>
+                  <label for="tc"><h5>الايميل</h5></label>
                   <input type="text" class="form-control" id="tc" name="tc" required placeholder="tc">
                 </div>
 
@@ -68,15 +68,15 @@
                   </div>
                 </div>
 
-                
-                
+
+
                 <button type="submit" class="btn btn-success button1">إضافة</button>
                 <a href="<?php echo e(URL::previous()); ?>" class="btn btn-default" style="margin-right:5px">إلغاء</a>
               </form>
-              
+
           </div>
         </div>
-      </div>      
+      </div>
     </div>
   </div>
 </div>

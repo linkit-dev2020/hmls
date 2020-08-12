@@ -18,7 +18,7 @@
 
                 <div class="card-body">
 
-                    
+
 
 
 
@@ -32,7 +32,7 @@
 
                         <div class= "row">
 
-                            <h2>رقم الكملك:<?php echo e($user->tc); ?></h2>
+                            <h2>الايميل:<?php echo e($user->tc); ?></h2>
 
                         </div>
 
@@ -70,7 +70,7 @@
 
 
 
-                        
+
 
                 </div>
 
@@ -110,13 +110,13 @@
 
                 <tr>
                     <?php if($user->hasRole(3)): ?>
-                        <th>اسم الصف</th>
+                        <th>اسم البرنامج</th>
                     <?php else: ?>
                         <th>اسم المادة</th>
                     <?php endif; ?>
 
                     <?php if($user->hasRole(3)): ?>
-                        <th>فصل المستخدم عن الصف</th>
+                        <th>فصل المستخدم عن البرنامج</th>
                     <?php else: ?>
                         <th>فصل المدرس عن المادة</th>
                     <?php endif; ?>
@@ -139,30 +139,30 @@
 
                     <td>
 
-                    
+
 
                     <div class="operations delete">
 
-                        
+
 
                         <form action="<?php echo e(route('class.deletestudent',['class' => $class->id])); ?>" method="POST" id="deleteForm">
 
                         <?php echo csrf_field(); ?>
 
 
-                        
 
-                        <input type="hidden" name="student_id" value="<?php echo e($user->id); ?>">     
+
+                        <input type="hidden" name="student_id" value="<?php echo e($user->id); ?>">
 
                         <input type="submit" class="btn btn-danger" value ="فصل">
 
-                        </form> 
+                        </form>
 
-                         
 
-                             
 
-                        
+
+
+
 
                     </div>
 
@@ -182,7 +182,7 @@
 
                     <td>
 
-                    
+
 
                     <div class="operations delete">
 
@@ -193,9 +193,9 @@
                         <?php echo csrf_field(); ?>
 
 
-                        
 
-                        <input type="hidden" name="teacher_id" value="<?php echo e($user->id); ?>">    
+
+                        <input type="hidden" name="teacher_id" value="<?php echo e($user->id); ?>">
 
                         <input type="submit" class="btn btn-danger" value ="فصل">
 
@@ -241,11 +241,11 @@
 
                 <thead>
 
-                <tr> 
+                <tr>
 
                     <th>اسم الدورة</th>
 
-                    
+
 
                     <th>فصل المستخدم عن الدورة</th>
 
@@ -263,30 +263,30 @@
 
                     <td><?php echo e($course->title); ?></td>
 
-                    
 
-                    
+
+
 
                     <td>
 
                     <div class="operations delete">
 
-                         
+
 
                         <form action="<?php echo e(route('course.deleteteacher',['course' => $course->id])); ?>" method="POST" id="deleteForm">
 
                         <?php echo csrf_field(); ?>
 
 
-                        
 
-                        <input type="hidden" name="teacher_id" value="<?php echo e($user->id); ?>">    
+
+                        <input type="hidden" name="teacher_id" value="<?php echo e($user->id); ?>">
 
                         <input type="submit" class="btn btn-danger" value ="فصل">
 
-                        </form>     
+                        </form>
 
-                        
+
 
                     </div>
 
@@ -304,30 +304,30 @@
 
                     <td><?php echo e($course->title); ?></td>
 
-                    
 
-                    
+
+
 
                     <td>
 
                     <div class="operations delete">
 
-                         
+
 
                         <form action="<?php echo e(route('course.deletestudent',['course' => $course->id])); ?>" method="POST" id="deleteForm">
 
                         <?php echo csrf_field(); ?>
 
 
-                        
 
-                        <input type="hidden" name="student_id" value="<?php echo e($user->id); ?>">    
+
+                        <input type="hidden" name="student_id" value="<?php echo e($user->id); ?>">
 
                         <input type="submit" class="btn btn-danger" value ="فصل">
 
-                        </form>     
+                        </form>
 
-                        
+
 
                     </div>
 
@@ -361,7 +361,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="card table-card color-grey">
                 <div class="card-header" style="text-align: right">
-                    اضافة الطالب الى الصف :
+                    اضافة الطالب الى برنامج :
                 </div>
 
                 <div class="card-body">

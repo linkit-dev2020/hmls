@@ -29,8 +29,10 @@
         <li><a href="{{route('course.index') }}">الدورات المجانية<i class="fa fa-angle-double-left pull-left"></i></a></li>
         <li><a href="{{route('unit.index')}}">الوحدات الدرسية<i class="fa fa-angle-double-left pull-left"></i></a></li>
         <li><a href="{{route('lesson.index')}}">الدروس<i class="fa fa-angle-double-left pull-left"></i></a></li>
-            <li><a href="{{route('test.index')}}">الوظائف<i class="fa fa-angle-double-left pull-left"></i></a></li>
-            <li><a href="{{route('attachment.index')}}">المرفقات<i class="fa fa-angle-double-left pull-left"></i></a></li>
+        <li><a href="{{route('test.index')}}">الوظائف<i class="fa fa-angle-double-left pull-left"></i></a></li>
+        <li><a href="{{route('attachment.index')}}">المرفقات<i class="fa fa-angle-double-left pull-left"></i></a></li>
+        <li><a href="/gettest">تقييم الوظائف<i class="fa fa-angle-double-left pull-left"></i></a></li>
+
         @endif
         @if (Auth::user()->hasRole(3))
         <li><a href="{{route('class.index')}}">الصفوف<i class="fa fa-angle-double-left pull-left"></i></a></li>

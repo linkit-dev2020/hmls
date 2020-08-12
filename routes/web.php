@@ -1735,3 +1735,7 @@ Route::get('/clearNotf',function()
     }
     return redirect()->back();
 });
+
+Route::post('/uploadtest','StudentTest@upload');
+Route::get('/gettest','StudentTest@get');
+Route::post('/gradetest','StudentTest@grade');

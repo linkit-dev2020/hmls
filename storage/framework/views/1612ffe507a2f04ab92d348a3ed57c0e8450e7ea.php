@@ -28,11 +28,11 @@
           </div>
           <table id="myTable" class="table table-bordered table-hover table-width">
             <thead>
-              <tr> 
+              <tr>
                 <th>اسم المستخدم</th>
                 <th>الحالة</th>
-                
-                <th>رقم الكملك</th>
+
+                <th>الايميل</th>
                 <th>رقم الهاتف</th>
                 <th>تاريخ الإضافة</th>
                 <th> عرض </th>
@@ -53,7 +53,7 @@
                     <a herf="javascript:;" class="" onclick="$('#<?php echo e($teacher->id+1); ?>').click();" >
                       <i class="fa fa-check-circle" aria-hidden="true" style="font-size:18px;color:#5cb85c;cursor: pointer;"></i>
                     </a>
-                  </form> 
+                  </form>
                   <?php else: ?>
                   <form action="<?php echo e(route('users.activate', $teacher)); ?>" method="POST" id="activateForm">
                     <?php echo csrf_field(); ?>
@@ -63,10 +63,10 @@
                       <i class="fa fa-times-circle" aria-hidden="true" style="font-size:18px;color:#dd4b39;cursor: pointer;"></i>
                     </a>
                   </form>
-                  <?php endif; ?>          
+                  <?php endif; ?>
                 </td>
                 <td><?php echo e($teacher->tc); ?></td>
-                
+
                 <td><?php echo e($teacher->phone); ?></td>
                 <td><?php echo e($teacher->created_at); ?></td>
  <td>
@@ -84,12 +84,12 @@
                     <form action="<?php echo e(route('users.destroy',['user' => $teacher->id])); ?>" method="POST" id="deleteForm">
                       <?php echo csrf_field(); ?>
 
-                      <input type="hidden" name="_method" value="DELETE">    
+                      <input type="hidden" name="_method" value="DELETE">
                       <button id="del<?php echo e($teacher->id); ?>" class=" btn-xs delete-button" style="display:none;"></button>
                       <a herf="javascript:;" class="" onclick="$('#del<?php echo e($teacher->id); ?>').click();" >
                         <i class="fa fa-trash" style="font-size:18px;color:#dd4b39"></i>
                       </a>
-                    </form>       
+                    </form>
                   </div>
                 </td>
               </tr>

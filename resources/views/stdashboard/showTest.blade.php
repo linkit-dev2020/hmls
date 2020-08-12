@@ -25,8 +25,28 @@
         <a class="btn btn-primary" href="{{asset($test->src)}}" >فتح الصوت</a>
     @endif
 
-
+    @if ( session('success') )
+        <div class = "alert alert-success">
+         {{session('success')}}
+        </div>
+    @endif
     <br><br>
+    <h3>التسليم</h3>
+    <form action="/uploadtest" method="POST" enctype="multipart/form-data">
+        @csrf
+        <input type="file" name="file" >
+        <input type="hidden" name="subject_id" value="{{$test->id}}" />
+        <input type="hidden" name="student_id" value="{{Auth::user()->id}}" />
+        <input type="submit" value="upload">
+    </form>
+    <h3>العلامة:</h3>
+    @php
+        $mod = \App\STest::where('student_id',Auth::user()->id)->where('subject_id',$test->id)->get();
+        if(count($mod))
+            echo $mod->first()->grade;
+        else
+            echo 'لم يتم التقييم بعد';
+    @endphp
     <h3 id="att_h" style="text-align: right!important;">مرفقات الاختبار</h3>
 
     <ul class="list-group">

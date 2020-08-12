@@ -106,7 +106,7 @@
                 <li class="nav-item" id="main"><a href="/" class="nav-link pl-0" style="font-size: large">الرئيسية</a></li>
                 <li class="nav-item" id="about"><a href="/about" class="nav-link "style="font-size: large" >عن النظام</a></li>
                 <li class="nav-item " id="class"><a href="/class" class="nav-link " style="font-size: large">التخصصات</a>
-                <li class="nav-item" id="course" ><a href="/course" class="nav-link" style="font-size: large">الدورات</a></li>
+                <li class="nav-item" id="course" ><a href="/course" class="nav-link" style="font-size: large">الدورات المجانية</a></li>
                 <li class="nav-item" id="contact"><a href="/contact" class="nav-link" style="font-size: large">تواصل معنا</a></li>
 
             </ul>
