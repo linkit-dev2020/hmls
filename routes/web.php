@@ -1285,7 +1285,7 @@ Route::post('advices/{advice}/deactivate',
 
 
         //lessons index
-Route::get('lessonss',
+Route::get('lessons',
 ['uses' => 'Lesson\LessonsController@index',
 'middleware' => 'roles',
 'roles' => [\App\Role::ADMIN,\App\Role::MANAGER,\App\Role::STUDENT,\App\Role::TEACHER
