@@ -49,14 +49,14 @@ class Test extends Model
 
     //get the name of file from the full path
 
-    public function setSrcAttribute($value){
+   /* public function setSrcAttribute($value){
 
         if($this->attributes['type']=='video')
             $this->attributes['src']=$value;
         else
             $this->attributes['src'] = $this->getStoragePath($value);
     }
-
+*/
 
 
 
@@ -78,7 +78,7 @@ class Test extends Model
     }
 
 
-
+/*
     public function getSrcAttribute($value){
 
         if($this->attributes['type'] === 'video') {
@@ -95,7 +95,7 @@ class Test extends Model
         }
 
     }
-
+*/
 
 
 

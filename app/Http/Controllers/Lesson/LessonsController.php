@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Redirect;
 use Storage ;
 use File ;
 use App\User;
+use Illuminate\Support\Facades\Mail;
 
 class LessonsController extends Controller
 {
@@ -202,7 +203,7 @@ class LessonsController extends Controller
         }
         if($request->isLive == 'on')
         {
-            //$this->sendMails($request->course_id,$request->start);
+             $this->sendMails($request->unit_id,$request->start);
         }
          //Return redirect
         return redirect()
@@ -211,11 +212,24 @@ class LessonsController extends Controller
     }
     public function sendMails($course_id, $start)
     {
-        $course = Course::find($course_id);
-        $students = $course->students();
+        $unit = Unit::find($course_id);
+        $students = $unit->subject()->first()->class()->first()->students()->get();
+
         foreach($students as $st)
         {
             // mail
+            $st->tc = "abdussalam.alali95@gmail.com";
+            $to_name = $st->full_name;
+            $to_email = $st->tc;
+            $data = [
+                'date'=>$start,
+                'name' => $to_name,
+                'subject'=>$unit->subject()->first()->name,
+            ];
+            Mail::send('mail.dates', $data, function($message) use ($to_name, $to_email) {
+                $message->to($to_email, $to_name)->subject('محاضرة بث مباشر');
+                $message->from('info@hlms.com','HLMS');
+            });
         }
     }
 

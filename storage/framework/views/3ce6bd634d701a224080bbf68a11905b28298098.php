@@ -92,7 +92,6 @@
                                     <form id="request" method="post" action="/classrequests">
                                         <?php echo csrf_field(); ?>
                                         <input type="hidden" name="class_id" value="<?php echo e($class->id); ?>">
-
                                     </form>
                                 <?php else: ?>
                                     <div class="badge badge-pill">منضم</div>

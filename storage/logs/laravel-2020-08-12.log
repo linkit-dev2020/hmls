@@ -2590,3 +2590,15 @@
 [stacktrace]
 #0 {main}
 "} 
+[2020-08-12 15:21:03] local.ERROR: Maximum execution time of 60 seconds exceeded {"userId":66,"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): Maximum execution time of 60 seconds exceeded at C:\\xamppp\\htdocs\\laravel5.8\\blog\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:326)
+[stacktrace]
+#0 {main}
+"} 
+[2020-08-12 15:30:16] local.ERROR: Maximum execution time of 60 seconds exceeded {"userId":66,"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): Maximum execution time of 60 seconds exceeded at C:\\xamppp\\htdocs\\laravel5.8\\blog\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:326)
+[stacktrace]
+#0 {main}
+"} 
+[2020-08-12 15:31:39] local.ERROR: Maximum execution time of 60 seconds exceeded {"userId":66,"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): Maximum execution time of 60 seconds exceeded at C:\\xamppp\\htdocs\\laravel5.8\\blog\\vendor\\symfony\\http-foundation\\Response.php:1242)
+[stacktrace]
+#0 {main}
+"} 

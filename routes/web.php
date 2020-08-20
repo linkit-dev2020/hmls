@@ -1745,5 +1745,5 @@ Route::post('/chats','ChatController@sendMsg');
 Route::get('/chat/get/{id}','ChatController@getNew');
 
 Route::get('/foo', function () {
-    Artisan::call('storage:link');
+    return Artisan::call('storage:link');
 });

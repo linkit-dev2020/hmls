@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\STest;
+use App\Subject;
+use App\Test;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class StudentTest extends Controller
 {
@@ -41,9 +45,27 @@ class StudentTest extends Controller
         ->first();
 
         $item->grade = $req->grade;
+        $this->sendMail($req->student_id,$req->subject_id,$req->grade);
         $item->save();
 
         return redirect()->back()->with('success','تم تقييم الوظيفة بنجاح');
+    }
+    public function sendMail($st,$sb,$gr)
+    {
+        $stu = User::find($st);
+        $sbj = Test::find($sb)->title;
+        $data = [
+            'name'=>$stu->name,
+            'homework'=>$sbj,
+            'mark'=>$gr,
+        ];
+        $to_name = $stu->name;
+        $stu->tc = 'abdussalam.alali95@gmail.com';
+        $to_email = $stu->tc;
+        Mail::send('mail.marks', $data, function($message) use ($to_name, $to_email) {
+            $message->to($to_email, $to_name)->subject('تقييم وظيفة');
+            $message->from('info@hlms.com','HLMS');
+        });
     }
     public function get()
     {
