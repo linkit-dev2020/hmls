@@ -218,7 +218,7 @@ class LessonsController extends Controller
         foreach($students as $st)
         {
             // mail
-            $st->tc = "abdussalam.alali95@gmail.com";
+
             $to_name = $st->full_name;
             $to_email = $st->tc;
             $data = [

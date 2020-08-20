@@ -60,7 +60,7 @@ class StudentTest extends Controller
             'mark'=>$gr,
         ];
         $to_name = $stu->name;
-        $stu->tc = 'abdussalam.alali95@gmail.com';
+
         $to_email = $stu->tc;
         Mail::send('mail.marks', $data, function($message) use ($to_name, $to_email) {
             $message->to($to_email, $to_name)->subject('تقييم وظيفة');
