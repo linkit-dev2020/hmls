@@ -119,7 +119,7 @@
                <td>{{$test->term}}</td>
                   <td>{{$subjects[0]->name }}</td>
                <td class="go-m">{{$test->type}}</td>
-               <td><a href="/storage/{{$test->src}}">تحميل </a></td>
+               <td><a href="/storage/{{str_replace('public/','',$test->src)}}">تحميل </a></td>
               </tr>
             </tbody>
           </table>

@@ -16,13 +16,13 @@
         ?>
         {!! $test->src !!}
     @elseif($test->type=="pdf")
-        <a class="btn btn-primary" href="/storage/{{$test->src}}" >تحميل</a>
+        <a class="btn btn-primary" href="/storage/{{str_replace('public/','',$test->src)}}" >تحميل</a>
     @elseif($test->type=="word")
-        <a class="btn btn-primary" href="/storage/{{$test->src}}" >تحميل</a>
+        <a class="btn btn-primary" href="/storage/{{str_replace('public/','',$test->src)}}" >تحميل</a>
     @elseif($test->type="url")
         <a class="btn btn-primary" href="{{$test->src}}" >فتح الرابط</a>
     @elseif($test->type=="audio")
-        <a class="btn btn-primary" href="/storage/{{$test->src}}" >فتح الصوت</a>
+        <a class="btn btn-primary" href="/storage/{{str_replace('public/','',$test->src)}}" >فتح الصوت</a>
     @endif
 
     @if ( session('success') )
