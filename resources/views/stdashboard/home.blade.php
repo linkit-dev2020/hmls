@@ -87,8 +87,8 @@
 
                                 ?>
                                 @if($new)
-                                    <span  class="badge badge-primary" style="cursor: pointer" onclick="document.getElementById('request').submit();" > طلب انضمام</span>
-                                    <form id="request" method="post" action="/classrequests">
+                                    <span  class="badge badge-primary" style="cursor: pointer" onclick="document.getElementById('request{{$class->id}}').submit();" > طلب انضمام</span>
+                                    <form id="request{{$class->id}}" method="post" action="/classrequests">
                                         @csrf
                                         <input type="hidden" name="class_id" value="{{$class->id}}">
                                     </form>
