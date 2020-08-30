@@ -1740,6 +1740,8 @@ Route::post('/uploadtest','StudentTest@upload');
 Route::get('/gettest','StudentTest@get');
 Route::post('/gradetest','StudentTest@grade');
 Route::get('/chats/{id}','ChatController@getConversation');
+Route::get('/chats/{id}/admin','ChatController@getConversationAdmin');
+Route::get('/chat/get/{id}/admin','ChatController@getNewAdmin');
 Route::get('/chats','ChatController@getConversations');
 Route::post('/chats','ChatController@sendMsg');
 Route::get('/chat/get/{id}','ChatController@getNew');

@@ -2,18 +2,19 @@
 @section('content')
     <div id="chat_container">
         @foreach($msg as $m)
-            @if($m->sender_id == Auth::user()->id)
+            @if($m->sender === Auth::user()->id)
+
             <div class="send">
-                {{\App\User::find($m->sender_id)->fullname}}
+                Me
                 <span class="message badge badge-primary">
-                    {{$m->msg}}
+                    {{$m->content}}
                 </span>
             </div>
             @else
             <div class="recv">
-                {{\App\User::find($m->sender_id)->fullname}}
+                Teacher
                 <span class="message badge badge-primary">
-                    {{$m->msg}}
+                    {{$m->content}}
                 </span>
             </div>
             @endif
@@ -46,18 +47,17 @@
 @section('js')
 <script>
     $(document).ready(function(){
-        let sender = 'Me';
+    let sender = 'me';
     function send()
     {
         let msg = $(".msg").val();
         console.log(msg);
-        addMessageS(msg);
+        addMessageS(msg,'send');
         $(".msg").val("");
         let data = {
-            'sender' : '{{$sender}}',
-            'msg': msg,
-            'sid': '{{$subject->id}}',
-            'recv': '{{$subject->teachers()->first()->id}}',
+            'conversation_id':'{{$convid}}',
+            'content':msg,
+            'sender': {{$sender}},
         };
         $.ajax({
             type: "POST",
@@ -71,14 +71,40 @@
         send();
         console.log('clicked');
     });
-    function addMessageS(cont)
+
+    function addMessageS(cont,type)
     {
         console.log('#');
+        let ss;
+        if(type=="recv")
+            ss =  'To me';
+        else
+            ss= 'Me';
         let d = document.getElementById('chat_container');
-        d.innerHTML += '<div class="recv">'+sender+'<span class="message badge badge-primary">'+cont+'</span></div>';
+        d.innerHTML += '<div class="'+type+'">'+ss+'<span class="message badge badge-primary">'+cont+'</span></div>';
     }
+    function getNew() {
+        $.ajax({
+            url:'{{$url}}',
+            type:'get',
+            success:  function(data)
+            {
+                console.log(data);
+                for(let i=0;i<data.data.length;i++)
+                {
 
+                    {
+                        addMessageS(data.data[i]['content'],'recv');
+                        console.log(data.data[i]['content']);
+                    }
+                }
+            }
+        }
+        );
+        setTimeout(getNew,3000);
+    }
+    getNew();
 
-    });
+});
 </script>
 @endsection

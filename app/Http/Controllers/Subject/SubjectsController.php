@@ -4,22 +4,23 @@ namespace App\Http\Controllers\Subject;
 
 use App\Subject;
 use App\ClassRoom ;
+use App\Conversation;
 use App\Test;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Role;
 use App\User;
 use Auth;
-use Storage ; 
+use Storage ;
 use File;
 
 class SubjectsController extends Controller
 {
     public function __construct()
         {
-        
+
         $this->middleware('auth');
-        
+
         }
     /**
      * Display a listing of the resource.
@@ -28,15 +29,15 @@ class SubjectsController extends Controller
      */
     public function index()
     {
-        
-        
-        //Fetch all the subjects from teh database 
+
+
+        //Fetch all the subjects from teh database
         $subjectsQuery = Subject::all()->sortBy('order_num');
 
-        //handle parameter limit 
+        //handle parameter limit
         if(request()->has('take')){
 
-            $subjectsQuery->take(request()->take) ; 
+            $subjectsQuery->take(request()->take) ;
         }
 
         if (Auth::user()->hasAnyRole([0,1]))
@@ -46,7 +47,7 @@ class SubjectsController extends Controller
         else{
             $subjects = Auth::user()->subjects;
         }
-        //return view with subjects passed 
+        //return view with subjects passed
 
         return view('admin.subjects.index', compact('subjects'));
     }
@@ -58,9 +59,9 @@ class SubjectsController extends Controller
      */
     public function create(Request $request)
     {
-        //Fetch Classes to pass them to dropdown box 
+        //Fetch Classes to pass them to dropdown box
 
-        $selectedclass = $request->has('selectedclass') ? ClassRoom::findOrFail($request->selectedclass): null ; 
+        $selectedclass = $request->has('selectedclass') ? ClassRoom::findOrFail($request->selectedclass): null ;
         $classes = ClassRoom::all();
 
         return view('admin.subjects.create', compact('classes' , 'selectedclass'));
@@ -74,25 +75,25 @@ class SubjectsController extends Controller
      */
     public function store(Request $request)
     {
-      
-        //Validate Data 
+
+        //Validate Data
         $request->validate([
-            'name' => 'required|max:200', 
+            'name' => 'required|max:200',
             'class_id' => 'required'
         ]);
 
 
-        //Prepare Data to persist 
+        //Prepare Data to persist
 		$sb=new Subject();
 		$sb->name=$request->name;
 		$sb->downloable=$request->downloable?true:false;
 		$sb->active=$request->active?true:false;
 		$sb->class_id=$request->class_id;
-        $attributes['name'] = $request->name ; 
-        $attributes['downloable'] = $request->downloable ? true : false ; 
+        $attributes['name'] = $request->name ;
+        $attributes['downloable'] = $request->downloable ? true : false ;
 
-        $attributes['active'] = $request->active ? true : false ; 
-			
+        $attributes['active'] = $request->active ? true : false ;
+
         $attributes['class_id'] = $request->class_id ;
         $attributes['order_num'] = $request->order ;
 		$attributes['cover']=$request->file('cover')->store('public/covers');
@@ -101,10 +102,10 @@ class SubjectsController extends Controller
           //      $attributes['cover'] = $request->cover->storeAs('public/subjects', $request->cover->getClientOriginalName());
                 //$attributes['cover'] = "qwer";
         //}
-        //Persist Data in the database 
-		
+        //Persist Data in the database
+
        $subject =  Subject::create($attributes);
-		
+
         //Redirect to the Subject Page
         return redirect()
                ->route('subject.show', ['subject' => $subject->id])
@@ -120,13 +121,14 @@ class SubjectsController extends Controller
     public function show(Subject $subject)
     {
         $teachers = Role::find(2)->users()->get();
-        
+
         $teachersSubject = Subject::find($subject->id)->teachers()->get();
         $tests = Test::all() ;
         $subjectTests = $subject->tests;
-        //Return a view with Subejct Model 
+        $convs =Conversation::where('subject',$subject->id)->get();
+        //Return a view with Subejct Model
         return view('admin.subjects.show', compact('subject','teachersSubject','teachers' ,
-            'tests', 'subjectTests'));
+            'tests', 'subjectTests','convs'));
     }
 
     public function attachTest(Request $request,Subject $subject)
@@ -152,7 +154,7 @@ class SubjectsController extends Controller
      */
     public function edit(Subject $subject)
     {
-        //Fetch All Classes 
+        //Fetch All Classes
         $classes = ClassRoom::all();
 
         return view('admin.subjects.edit', compact('subject', 'classes'));
@@ -176,12 +178,12 @@ class SubjectsController extends Controller
         //Prepare Data
             $subject->name = $request->name ;
 
-            $subject->class_id = $request->class_id ; 
+            $subject->class_id = $request->class_id ;
             $subject->order_num = $request->order;
 
-            $subject->active = $request->active ? true : false ; 
+            $subject->active = $request->active ? true : false ;
 
-            $subject->downloable = $request->downloable ? true : false ; 
+            $subject->downloable = $request->downloable ? true : false ;
 
 			if($request->hasFile('cover')) {
                 Storage::delete($subject->cover);
@@ -190,7 +192,7 @@ class SubjectsController extends Controller
         //Persist Data
         $subject->save();
 
-        //Redirect with Status 
+        //Redirect with Status
         return redirect()
                ->route('subject.show',['subject' => $subject->id])
                ->with('success', 'تم تعديل المادة الدراسية بنجاح');
@@ -204,7 +206,7 @@ class SubjectsController extends Controller
      */
     public function destroy(Subject $subject)
     {
-        
+
         //Delete The lesson file
         Storage::delete($subject->src);
 
@@ -213,13 +215,13 @@ class SubjectsController extends Controller
 
         return redirect()->route('subject.index')
        ->with('success','تم حذف المادة الدراسية ب نجاح'   );
-        
+
     }
 
     /**
      * Activate A Subject
      *  @param \App\Subject $subject
-     *  @return \Illuminate\Http\Response 
+     *  @return \Illuminate\Http\Response
      */
     public function activate(Request $request, Subject $subject){
 
@@ -235,17 +237,17 @@ class SubjectsController extends Controller
 
 
     /**
-     * Deactivate A Subject 
-     * 
-     * @param \App\Subject $subject 
-     * @return \Illuminate\Http\Response 
+     * Deactivate A Subject
+     *
+     * @param \App\Subject $subject
+     * @return \Illuminate\Http\Response
      */
     public function deactivate(Request $request, Subject $subject){
 
-        $subject->deactivate(); 
+        $subject->deactivate();
 
         $subject->save();
-        
+
         return back()
                 //->route('subject.show', ['subject' => $subject->id])
                 ->with('success','تم إلغاء تفعيل المادة بنجاح');
@@ -265,10 +267,10 @@ class SubjectsController extends Controller
              }
          }
 
-        //Return redirect 
+        //Return redirect
         return redirect()
             ->route('subject.show', ['subject' => $subject->id])
-            ->with('success', 'تم اضافة المدرس للمادة بنجاح'); 
+            ->with('success', 'تم اضافة المدرس للمادة بنجاح');
     }
 
     public function deleteTeacher( Subject $subject ,Request $request )
@@ -277,10 +279,10 @@ class SubjectsController extends Controller
 
         $request->subject->teachers()->detach($request->teacher_id);
 
-        //Return redirect 
+        //Return redirect
         return redirect()
             ->route('subject.show', ['subject' => $subject->id])
-            ->with('success', 'تم فصل المدرس عن المادة بنجاح'); 
+            ->with('success', 'تم فصل المدرس عن المادة بنجاح');
     }
 
 

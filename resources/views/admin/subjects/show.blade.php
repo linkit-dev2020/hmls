@@ -73,6 +73,7 @@
   </div>
   @endif
     @if(Auth::user()->hasAnyRole([0,1,2]))
+
     <div id="table" class="row">
       <div class="card-deck">
         <div class="col-lg-12 col-md-12 col-sm-12">
@@ -110,8 +111,33 @@
       </div>
     </div>
 @endif
+<h1 class="bg-dark" style="color:#000;"> المحادثات</h1>
+<table class="table text-dark" style="background: #ddd;color:#555!important;">
+    <thead>
+        <th>المادة</th>
+        <th>الطالب</th>
+        <th>فتح المحادثة</th>
+    </thead>
+    <tbody>
+    @foreach($convs as $c)
+        <tr>
+            <td>
+                {{\App\User::find($c->sender)->full_name}}
+            </td>
+            <td>
+                {{\App\Subject::find($c->subject)->name}}
+            </td>
+            <td>
+                <a href="/chats/{{$c->id}}/admin">Open</a>
+            </td>
+        </tr>
+    @endforeach
+</tbody>
+</table>
 
-    <div id="table" class="row">
+    <div id="table" class="row" style="background:#aaa;">
+
+
       <div class="col-lg-12 col-md-12 col-sm-12 col-m-u">
         <div class="card table-cards color-grey">
           <div class="card-body">
