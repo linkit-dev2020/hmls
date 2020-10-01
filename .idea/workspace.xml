@@ -33,43 +33,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5914a958-08b5-4050-aa11-bc5b7bc7a978" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blog.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ChatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChatController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClassRoom/ClassesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClassRoom/ClassesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/classes/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/classes/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front-end/nhome/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front-end/nhome/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Requests/ClassRequestsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Requests/ClassRequestsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/requestclass/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/requestclass/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/stdashboard/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/stdashboard/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/3tAIA2ZVlvKBFdGuzQf4Tl6XmxqaC9Z228jrNywm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/4Sj0rHp8qsbUDj6ibq2vIxSIiR3FXDf6opI1sPlK" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/7lnfqOyvvH6Eyl8g45pg7TqdytGA1JhfKFgHwnVp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/8Rvda6NbdFQX3zckDgIWXTguuLmME8dajSsOICqI" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/8w1i05cCB6hBBFHZOETEVtv5YYGCeRrItSaKpHdw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/EWm6fTmr97ZYPDszx0faZJCFRPy89xO0cfVwgMLM" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/GnUXacXshOarPzsGotSrY3lO5xUVGN6ZNnqGdbL5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/ILdg9XNvnCpWZI1U98EFpXmWZTklbvpNR3gK09g5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/IXQvu3lEHb31QLlLoCVb6y8u4ziSsUqS7LSzybXV" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/KoZM947wC5DRVncqsPF3bhh6U7IzVdkLdaO8pQ9Y" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/LPGYezXY49AqPk8F4vEQxIbVFQJ9tVZZdWpRO7od" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/Oar40RFKZkyxvL5id1mzLCjYunLK9eiOGiFiqLEJ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/W2Ogb18lfEqBFPDgzxrIQyA6OeIxcF7NTbX72ADP" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/ZbRNUQCKA0SQaJG0ltlROOlXmCejUwspcCji9wkO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/bdS1OkKS8dHNww3sjdJCW4wiiw7EjpQv45DoYWly" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/d3WA38LAAh72A2IQs4bvwwaD2z81k8R0X6jDotul" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/djGSOpiiLRP98gxn5VciToIWS8JaCD5ruQjlr0jS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/ljRN7QV69SHb5a0TRMCunHjBbr6VgVdZVIQlFzd7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/mOHEeDp9nFxXI3BqNeaLwmPsqIERBXQ3wd3ej1ln" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/ndX4SjiVvPeaIcwjZQbCIG0CbBFGDL7au2AQcaf5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/pE2kbehlSalbXmGZKihiVcUlLyYUlbUg5zLBgyV0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/tD7Je56U7qDDOnhW3Ewc29ni0wnOmxdMYGyIc9Bg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/v3pfpNVA3neAmbpFLtbSLTSXusQbttfPAkUSMERn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/vLxe9VwcUP97uweAjSsrwz7ETLhjZkEef2qW2M17" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/vbmsXR1RPImQU99cxs6DG1SAddZMcz1l8IftwZEb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2019-09-30.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/6OxmLtlGJBYnEHsaO8ekhxCIOXxq33fTKiY02gYP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/QUVV876pX5X8Oy3dA2L47heb2uC2nZ21bH4CqCCS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/y9M6jRRoyxwY6U0Q6gAlhBUcsUIy6ylgJQXBDO6C" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/sessions/y9M6jRRoyxwY6U0Q6gAlhBUcsUIy6ylgJQXBDO6C" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2020-10-01.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel-2020-10-01.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -480,7 +451,7 @@
       <workItem from="1570196324130" duration="1701000" />
       <workItem from="1599840137665" duration="1852000" />
       <workItem from="1601499435925" duration="600000" />
-      <workItem from="1601532116911" duration="8625000" />
+      <workItem from="1601532116911" duration="12800000" />
     </task>
     <servers />
   </component>

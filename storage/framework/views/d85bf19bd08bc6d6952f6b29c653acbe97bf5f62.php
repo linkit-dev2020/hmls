@@ -1,6 +1,4 @@
-@extends('admin.layouts.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 
 
@@ -38,16 +36,17 @@
               </tr>
             </thead>
             <tbody>
-              @foreach($requests as $request)
+              <?php $__currentLoopData = $requests; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $request): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
               <tr>
-                <td>{{$request->student->username}}</td>
+                <td><?php echo e($request->student->username); ?></td>
 
-                <td>{{$request->class->name}}</td>
-                <td>{{$request->mark}}</td>
+                <td><?php echo e($request->class->name); ?></td>
+                <td><?php echo e($request->mark); ?></td>
                   <td>
                       <div class="operations delete">
-                          <form action="{{ route('classrequest.accept',['id' => $request->id]) }}" method="POST" id="deleteForm">
-                              {!! csrf_field() !!}
+                          <form action="<?php echo e(route('classrequest.accept',['id' => $request->id])); ?>" method="POST" id="deleteForm">
+                              <?php echo csrf_field(); ?>
+
                               <input type="hidden" name="_method" value="DELETE">
                               <input type="submit" class="btn btn-success" value="قبول">
 
@@ -57,8 +56,9 @@
                   </td>
                   <td>
                       <div class="operations delete">
-                          <form action="{{ route('classrequest.remove',['id' => $request->id]) }}" method="POST" id="deleteForm">
-                              {!! csrf_field() !!}
+                          <form action="<?php echo e(route('classrequest.remove',['id' => $request->id])); ?>" method="POST" id="deleteForm">
+                              <?php echo csrf_field(); ?>
+
                               <input type="hidden" name="_method" value="DELETE">
                               <input type="submit" class="btn btn-danger" value="حذف">
 
@@ -68,7 +68,7 @@
                   </td>
 
               </tr>
-              @endforeach
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>
           </table>
         </div>
@@ -78,4 +78,6 @@
 
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\work\hmls\resources\views/admin/requestclass/index.blade.php ENDPATH**/ ?>

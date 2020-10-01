@@ -50,6 +50,7 @@ class ClassRequestsController extends Controller
         $requestClass = new RequestClass();
         $requestClass->student_id = Auth::user()->id;
         $requestClass->class_id = $request->class_id;
+        $requestClass->mark = $request->mark;
         $requestClass->save();
         return redirect()->back()->with('success','تم ارسال الطلب بنجاح');
 
@@ -97,19 +98,19 @@ class ClassRequestsController extends Controller
      */
     public function destroy($id)
     {
- 
-        
+
+
         $requestClass= RequestClass::where('id',$id)->first();
         //dd($requestClass);
         $class = ClassRoom::where('id',$requestClass->class_id)->first();
         //dd($requestClass->student_id);
         $class->students()->syncWithoutDetaching($requestClass->student_id);
-        
+
        //Delete lesson from db
        $requestClass->delete();
 
        return redirect()->back()
-      ->with('success','تم قبول الطلب بنجاح');   
+      ->with('success','تم قبول الطلب بنجاح');
     }
 
 

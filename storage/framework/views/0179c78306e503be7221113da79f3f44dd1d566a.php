@@ -1,57 +1,58 @@
-@extends('stdashboard.master')
-@section('title')
-    @if(Auth::check())
+<?php $__env->startSection('title'); ?>
+    <?php if(Auth::check()): ?>
         حسابي
-    @else
+    <?php else: ?>
         LMS
-    @endif
-@endsection
+    <?php endif; ?>
+<?php $__env->stopSection(); ?>
 
-@section('marq')
-        @php
+<?php $__env->startSection('marq'); ?>
+        <?php
             $notes=\App\Note::where('type','public')->get();
 
-        @endphp
+        ?>
 
-        @foreach($notes as $note)
-            {{$note->content}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        @endforeach
-@endsection
-@section('content')
+        <?php $__currentLoopData = $notes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $note): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php echo e($note->content); ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
 
     <div class="language " id="class">
         <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        @if ( session('success') )
+                        <?php if( session('success') ): ?>
 
                             <div class = "alert alert-success">
 
-                                {{session('success')}}
+                                <?php echo e(session('success')); ?>
+
 
                             </div>
 
-                        @endif
+                        <?php endif; ?>
 
-                        @if ( session('error') )
+                        <?php if( session('error') ): ?>
 
                             <div class = "alert alert-danger">
 
-                                {{session('error')}}
+                                <?php echo e(session('error')); ?>
+
 
                             </div>
 
-                        @endif
+                        <?php endif; ?>
                     </div>
                 </div>
                 <div class="row" id="#myclasses">
 
                 <div class="col">
-                    @if($check)
+                    <?php if($check): ?>
                     <div class="language_title wow flipInX"> برامجي</div>
-                    @else
+                    <?php else: ?>
                     <div class="language_title wow flipInX">البرامج الدراسية</div>
-                    @endif
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -60,18 +61,18 @@
     <div class="courses">
         <div class="container">
             <div class="row courses_row">
-            @foreach($classes as $class)
+            <?php $__currentLoopData = $classes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $class): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
 
                 <!-- Course -->
                     <div class="col-lg-4 course_col">
                         <div class="course wow fadeInRight">
-                            <div class="course_image"><img src="{{asset('images/course_4.jpg')}}" alt=""></div>
+                            <div class="course_image"><img src="<?php echo e(asset('images/course_4.jpg')); ?>" alt=""></div>
                             <div class="course_body">
-                                <div class="course_title"><a href="/stdsh/class/{{$class->id}}">{{$class->name}}</a></div>
+                                <div class="course_title"><a href="/stdsh/class/<?php echo e($class->id); ?>"><?php echo e($class->name); ?></a></div>
                             </div>
                             <div class="course_footer d-flex flex-row align-items-center justify-content-start">
-                                <div class="course_students"><i class="fa fa-user" aria-hidden="true"></i><span>{{$class->students()->count()}}</span></div>&nbsp;&nbsp;&nbsp;
+                                <div class="course_students"><i class="fa fa-user" aria-hidden="true"></i><span><?php echo e($class->students()->count()); ?></span></div>&nbsp;&nbsp;&nbsp;
                                 <!--<div class="course_rating ml-auto"><i class="fa fa-star" aria-hidden="true"></i><span>4,5</span></div>
                                 <div class="course_mark course_free trans_200"><a href="#">مجاني</a></div> -->
                                 <?php
@@ -86,16 +87,16 @@
                                     }
 
                                 ?>
-                                @if($new)
-                                    <span  class="badge badge-primary" style="cursor: pointer" onclick="showModal({{$class->id}})" > طلب انضمام</span>
-                                    <form id="request{{$class->id}}" method="post" action="/classrequests">
-                                        @csrf
-                                        <input type="hidden" name="class_id" value="{{$class->id}}">
+                                <?php if($new): ?>
+                                    <span  class="badge badge-primary" style="cursor: pointer" onclick="showModal(<?php echo e($class->id); ?>)" > طلب انضمام</span>
+                                    <form id="request<?php echo e($class->id); ?>" method="post" action="/classrequests">
+                                        <?php echo csrf_field(); ?>
+                                        <input type="hidden" name="class_id" value="<?php echo e($class->id); ?>">
                                         <input type="hidden" name="mark" id="mark"/>
                                     </form>
-                                @else
+                                <?php else: ?>
                                     <div class="badge badge-pill">منضم</div>
-                                @endif
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -121,7 +122,7 @@
                         </div>
                     </div>
                     <!-- Course -->
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
             <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -151,11 +152,11 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    @if($check)
+                    <?php if($check): ?>
                     <div class="language_title wow bounceIn">دوراتي</div>
-                    @else
+                    <?php else: ?>
                     <div class="language_title wow bounceIn">دوراتنا</div>
-                    @endif
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -164,12 +165,12 @@
     <div class="courses">
         <div class="container">
             <div class="row courses_row">
-            @foreach($courses as $class)
+            <?php $__currentLoopData = $courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $class): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
                 <!-- Course -->
                     <div class="col-lg-4 course_col">
                         <div class="course wow fadeInRight">
-                            <div class="course_image"><img src="{{asset('images/course_4.jpg')}}" alt=""></div>
+                            <div class="course_image"><img src="<?php echo e(asset('images/course_4.jpg')); ?>" alt=""></div>
                             <div class="course_body">
                                 <?php
                                 $cid=$class->id;
@@ -185,31 +186,31 @@
                                 }
 
                                 ?>
-                                @if($check || \Illuminate\Support\Facades\Auth::user()->hasAnyRole([0,1]))
-                                <div class="course_title"><a href="/stdsh/show/course/{{$class->id}}">{{$class->title}}</a></div>
-                                @elseif(!$new)
-                                <div class="course_title"><a href="/stdsh/show/course/{{$class->id}}">{{$class->title}}</a></div>
-								@else
-								<div class="course_title"><a href="#">{{$class->title}}</a></div>
-                                @endif
+                                <?php if($check || \Illuminate\Support\Facades\Auth::user()->hasAnyRole([0,1])): ?>
+                                <div class="course_title"><a href="/stdsh/show/course/<?php echo e($class->id); ?>"><?php echo e($class->title); ?></a></div>
+                                <?php elseif(!$new): ?>
+                                <div class="course_title"><a href="/stdsh/show/course/<?php echo e($class->id); ?>"><?php echo e($class->title); ?></a></div>
+								<?php else: ?>
+								<div class="course_title"><a href="#"><?php echo e($class->title); ?></a></div>
+                                <?php endif; ?>
                             </div>
                             <div class="course_footer d-flex flex-row align-items-center justify-content-start">
-                                <div class="course_students"><i class="fa fa-user" aria-hidden="true"></i><span>{{$class->stunum}}</span></div> &nbsp;&nbsp;
+                                <div class="course_students"><i class="fa fa-user" aria-hidden="true"></i><span><?php echo e($class->stunum); ?></span></div> &nbsp;&nbsp;
                                 <!-- <div class="course_rating ml-auto"><i class="fa fa-star" aria-hidden="true"></i><span>4,5</span></div> -->
-                                @if($new)
+                                <?php if($new): ?>
                                        <span  class="badge badge-primary" style="cursor: pointer"  data-toggle="modal" data-target="#exampleModal" > طلب انضمام</span>
-                                @else
+                                <?php else: ?>
                                     <div class="badge badge-pill">منضم</div>
-                                @endif
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
                     <!-- Course -->
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 <script>
     let class_id = 0;
     function showModal(id) {
@@ -223,7 +224,7 @@
            url: '/getQuizz/'+id,
            method:'get',
            data: {
-               __token: '{{csrf_token()}}',
+               __token: '<?php echo e(csrf_token()); ?>',
            },
             success:function (data) {
                console.log(data);
@@ -279,3 +280,5 @@
     }
 
 </script>
+
+<?php echo $__env->make('stdashboard.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\work\hmls\resources\views/stdashboard/home.blade.php ENDPATH**/ ?>
