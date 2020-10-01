@@ -814,7 +814,7 @@
                        console.log("1:"+js[i].correct);
                        console.log("2:"+js[i].wrongOne);
                        console.log("3:"+js[i].wrongTwo);
-                       hndl.addToView(js[i].question,js[i].correct,js[i].wrongTwo,js[i].wrongOne);
+                       quiz.addToView(js[i].question,js[i].correct,js[i].wrongTwo,js[i].wrongOne);
                     }
                 }
             });
