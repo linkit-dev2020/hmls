@@ -33,14 +33,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5914a958-08b5-4050-aa11-bc5b7bc7a978" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Requests/ClassRequestsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Requests/ClassRequestsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/requestclass/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/requestclass/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/stdashboard/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/stdashboard/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/6OxmLtlGJBYnEHsaO8ekhxCIOXxq33fTKiY02gYP" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/QUVV876pX5X8Oy3dA2L47heb2uC2nZ21bH4CqCCS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/y9M6jRRoyxwY6U0Q6gAlhBUcsUIy6ylgJQXBDO6C" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/sessions/y9M6jRRoyxwY6U0Q6gAlhBUcsUIy6ylgJQXBDO6C" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2020-10-01.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel-2020-10-01.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -451,7 +445,8 @@
       <workItem from="1570196324130" duration="1701000" />
       <workItem from="1599840137665" duration="1852000" />
       <workItem from="1601499435925" duration="600000" />
-      <workItem from="1601532116911" duration="12800000" />
+      <workItem from="1601532116911" duration="12994000" />
+      <workItem from="1601576189452" duration="54000" />
     </task>
     <servers />
   </component>
