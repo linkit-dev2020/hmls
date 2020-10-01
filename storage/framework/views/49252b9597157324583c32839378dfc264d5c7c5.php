@@ -1,6 +1,4 @@
-@extends('front-end.nhome.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <!-- END nav -->
     <section class="home-slider owl-carousel">
         <div class="slider-item" style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=752&q=80); background-position: 20% center" data-stellar-background-ratio="0.5">
@@ -82,18 +80,18 @@
             </div>
             <div class="row">
                 <?php $i=0; ?>
-                @foreach($classes as $class)
+                <?php $__currentLoopData = $classes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $class): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="col-md-6 course d-lg-flex ftco-animate">
                     <?php $url="images/course_10.jpg";
                     $i++;
                     ?>
-                    <div class="img" style="background-image: url({{asset($url)}});"></div>
+                    <div class="img" style="background-image: url(<?php echo e(asset($url)); ?>);"></div>
                     <div class="text bg-light p-4">
-                        <h3><a href="" style="float: right">{{$class->name}}</a> <span class="badge badge-pill" style="font-size: medium;text-align: left;float: left"><i class="fa fa-user"></i> {{$class->students()->count()}}</span></h3>
-                        <br><p style="float:right"><a href="/stdsh/class/{{$class->id}}" class="btn btn-secondary px-2 py-2 mt-3">عرض </a> </p>
+                        <h3><a href="" style="float: right"><?php echo e($class->name); ?></a> <span class="badge badge-pill" style="font-size: medium;text-align: left;float: left"><i class="fa fa-user"></i> <?php echo e($class->students()->count()); ?></span></h3>
+                        <br><p style="float:right"><a href="/stdsh/class/<?php echo e($class->id); ?>" class="btn btn-secondary px-2 py-2 mt-3">عرض </a> </p>
                     </div>
                 </div>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
     </section>
@@ -114,7 +112,7 @@
                    $a=0;
                 ?>
                 <!-- Course begin -->
-                @foreach($courses as $course)
+                <?php $__currentLoopData = $courses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $course): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <?php
                         $bgs=["bg_1.jpg","bg_2.jpg","bg_3.jpg","bg_4.jpg","bg_5.jpg","bg_11.jpg","bg_33.jpg"];
                         $url="images/course_10.jpg";
@@ -123,10 +121,10 @@
                 <div class="col-md-6 col-lg-3 ftco-animate" style="margin-top:10px;">
                     <div class="pricing-entry bg-light pb-4 text-center">
                         <div style="height: 200px;">
-                            <span class="badge badge-pill" style="font-size: medium"><i class="fa fa-user"></i> {{$course->stunum}}</span>
-                            <p><span class="price">{{$course->title}}</span> </p>
+                            <span class="badge badge-pill" style="font-size: medium"><i class="fa fa-user"></i> <?php echo e($course->stunum); ?></span>
+                            <p><span class="price"><?php echo e($course->title); ?></span> </p>
                         </div>
-                        <div class="img" style="background-image: url({{asset($url)}});background-position: center;
+                        <div class="img" style="background-image: url(<?php echo e(asset($url)); ?>);background-position: center;
                         background-repeat: no-repeat!important;
                         background-size: 100% 118%!important;
                         position: relative!important;height:200px;"></div>
@@ -135,7 +133,7 @@
                     </div>
                 </div>
                 <!-- end of course -->
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
             </div>
         </div>
@@ -175,7 +173,9 @@
         </div>
     </section>
 
-@endsection
-@section('navscript')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('navscript'); ?>
     $("#main").addClass("active");
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('front-end.nhome.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\work\hmls\resources\views/front-end/nhome/home.blade.php ENDPATH**/ ?>

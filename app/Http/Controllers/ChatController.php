@@ -19,6 +19,7 @@ class ChatController extends Controller
         $msg = null;
         if($conv!=null)
         $msg = $conv->messages()->get();
+        if(!is_null($msg))
         foreach($msg as $m)
         {
             if($m->sender == $uid)
@@ -31,13 +32,12 @@ class ChatController extends Controller
 
         $subject = Subject::find($id);
         $url = '/chat/get/'.$subject->id;
-        $convid= $conv->id;
+        $convid='';
         if($conv!=null)
         {
-
+            $convid= $conv->id;
             return view('stdashboard.chat',compact('msg','subject','sender','convid','isAdmin','subject','url'));
         }
-
         $conv = new Conversation();
         $conv->subject = $id;
         $conv->sender = $uid;

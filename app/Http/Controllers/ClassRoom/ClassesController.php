@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ClassRoom;
 
 use App\ClassRoom;
+use App\ClassTest;
 use App\Deneme;
 use App\Http\Controllers\Controller;
 use App\Note;
@@ -58,8 +59,8 @@ class ClassesController extends Controller
 
         return view('admin.classes.index')->withClasses($classes);
 
-        //TODO FrontEn Developer 
-        //Load admin.classes.index view with $classes 
+        //TODO FrontEn Developer
+        //Load admin.classes.index view with $classes
     }
 
     /**
@@ -69,7 +70,7 @@ class ClassesController extends Controller
      */
     public function create()
     {
-        //TODO frontEndDeveloper 
+        //TODO frontEndDeveloper
         //load admin.classes.create view
 
 
@@ -84,13 +85,13 @@ class ClassesController extends Controller
      */
     public function store(Request $request)
     {
-        //Validate Data 
+        //Validate Data
         $request->validate([
             'name' => 'required|max:100|unique:classes',
             'free' => 'boolean'
         ]);
 
-        //Store Data 
+        //Store Data
 
         $newClass = ClassRoom::create([
             'name' => $request->name,
@@ -105,7 +106,7 @@ class ClassesController extends Controller
             return response()->json(['data' => $newClass], 201);
         }
 
-        //redirect with Session Message 
+        //redirect with Session Message
         return redirect()->route('class.index')->with('success', 'تم إنشاء الصف بنجاح');
     }
 
@@ -133,8 +134,8 @@ class ClassesController extends Controller
         $denemes = Deneme::query()->where('class_id', $class->id)->get();
         $notes = Note::query()->where('class_id' , $class->id)->where('type', 'private')->get();
 
-        //TODO FrontEnd Developer 
-        //Load admin.classes.show view with the $class Model Intance 
+        //TODO FrontEnd Developer
+        //Load admin.classes.show view with the $class Model Intance
         return view('admin.classes.show', compact('class', 'teachers', 'teachersClass',
             'classAdvices', 'denemes', 'notes','students'));
     }
@@ -148,7 +149,7 @@ class ClassesController extends Controller
     public function edit(ClassRoom $class)
     {
 
-        //TODO FrontEnd Developer 
+        //TODO FrontEnd Developer
         //Load admin.classes.edit view with $class data
         return view('admin.classes.edit', compact('class'));
     }
@@ -246,7 +247,7 @@ class ClassesController extends Controller
         //dd($teacher);
         $class->teachers()->syncWithoutDetaching($teacher);
 
-        //Return redirect 
+        //Return redirect
         return redirect()
             ->route('class.show', ['class' => $class->id])
             ->with('success', 'تم اضافة المدرس للصف بنجاح');
@@ -258,7 +259,7 @@ class ClassesController extends Controller
 
         $class->teachers()->detach($request->teacher_id);
 
-        //Return redirect 
+        //Return redirect
         return redirect()
             ->back()
             ->with('success', 'تم فصل المدرس عن الصف بنجاح');
@@ -269,27 +270,27 @@ class ClassesController extends Controller
         //$teacher = User::where('id',$request->teacher)->get();
 
         $class->students()->detach($request->student_id);
-		
+
 		$match=['class_id'=>$class->id,'student_id'=>$request->student_id];
 		$req=RequestClass::where($match)->delete();
-		
-        //Return redirect 
+
+        //Return redirect
         return redirect()
             ->back()
             ->with('success', 'تم فصل الطالب عن الصف بنجاح');
     }
-	
+
 	public function deleteAllStudents(ClassRoom $class,Request $request)
 	{
-		
+
 		foreach($class->students as $st)
 		{
 			$match=['class_id'=>$class->id,'student_id'=>$st->id];
 			$req=RequestClass::where($match)->delete();
 			ClassStudent::where($match)->delete();
 		}
-		
-        //Return redirect 
+
+        //Return redirect
         return redirect()
             ->back()
             ->with('success', 'تم فصل جميع الطلاب');
@@ -314,8 +315,8 @@ class ClassesController extends Controller
 
         return view('admin.classes.myclasses')->withClasses($classes);
 
-        //TODO FrontEn Developer 
-        //Load admin.classes.index view with $classes 
+        //TODO FrontEn Developer
+        //Load admin.classes.index view with $classes
     }
 
     public function showMyClass(Request $request,$id)
@@ -340,5 +341,35 @@ class ClassesController extends Controller
 
         //TODO FrontEn Developer
         //Load admin.classes.index view with $classes
+    }
+
+    public function updateQuizz(Request $request,$id) {
+        $json = $request->json;
+        $subject = ClassTest::where('class_id',$id)->get();
+        if(!is_null($subject->first()))
+        {
+            $subject = $subject->first();
+        }
+        else
+        {
+            $subject=new ClassTest();
+        }
+       // dd($subject);
+        $subject->test = $json;
+        $subject->class_id = $id;
+        $subject->save();
+
+        return "success";
+    }
+
+    public function getQuizz($id) {
+        $subject = ClassTest::where('class_id',$id)->get();
+        if(!is_null($subject))
+        {
+            $subject = $subject->first()->test;
+            return $subject;
+
+        }
+        return "";
     }
 }

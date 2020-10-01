@@ -1749,3 +1749,7 @@ Route::get('/chat/get/{id}','ChatController@getNew');
 Route::get('/foo', function () {
     return Artisan::call('storage:link');
 });
+
+
+Route::get('/getQuizz/{id}','ClassRoom\ClassesController@getQuizz');
+Route::post('/updatequizz/{id}','ClassRoom\ClassesController@updateQuizz');

@@ -1,6 +1,4 @@
-@extends('front-end.nhome.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <section class="hero-wrap hero-wrap-2" style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=752&q=80); background-position: 20% center" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
@@ -21,23 +19,25 @@
             </div>
             <div class="row">
                 <?php $i=0; ?>
-                @foreach($classes as $class)
+                <?php $__currentLoopData = $classes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $class): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="col-md-6 course d-lg-flex ftco-animate">
                         <?php $url="images/course-".(($i%13)+1).".jpg";
                         $i++;
                         ?>
-                        <div class="img" style="background-image: url({{asset($url)}});"></div>
+                        <div class="img" style="background-image: url(<?php echo e(asset($url)); ?>);"></div>
                             <div class="text bg-light p-4">
-                                <h3><a href="" style="float: right">{{$class->name}}</a> <span class="badge badge-pill" style="font-size: medium;text-align: left;float: left"><i class="fa fa-user"></i> {{$class->students()->count()}}</span></h3>
-                                <br><p style="float:right"><a href="/stdsh/class/{{$class->id}}" class="btn btn-secondary px-2 py-2 mt-3">عرض </a> </p>
+                                <h3><a href="" style="float: right"><?php echo e($class->name); ?></a> <span class="badge badge-pill" style="font-size: medium;text-align: left;float: left"><i class="fa fa-user"></i> <?php echo e($class->students()->count()); ?></span></h3>
+                                <br><p style="float:right"><a href="/stdsh/class/<?php echo e($class->id); ?>" class="btn btn-secondary px-2 py-2 mt-3">عرض </a> </p>
                             </div>
                     </div>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
     </section>
 
-@endsection
-@section('navscript')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('navscript'); ?>
     $("#class").addClass("active");
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('front-end.nhome.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\work\hmls\resources\views/front-end/nhome/class.blade.php ENDPATH**/ ?>

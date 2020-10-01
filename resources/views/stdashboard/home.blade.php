@@ -71,7 +71,7 @@
                                 <div class="course_title"><a href="/stdsh/class/{{$class->id}}">{{$class->name}}</a></div>
                             </div>
                             <div class="course_footer d-flex flex-row align-items-center justify-content-start">
-                                <div class="course_students"><i class="fa fa-user" aria-hidden="true"></i><span>{{$class->stunum}}</span></div>&nbsp;&nbsp;&nbsp;
+                                <div class="course_students"><i class="fa fa-user" aria-hidden="true"></i><span>{{$class->students()->count()}}</span></div>&nbsp;&nbsp;&nbsp;
                                 <!--<div class="course_rating ml-auto"><i class="fa fa-star" aria-hidden="true"></i><span>4,5</span></div>
                                 <div class="course_mark course_free trans_200"><a href="#">مجاني</a></div> -->
                                 <?php
