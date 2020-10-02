@@ -33,8 +33,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5914a958-08b5-4050-aa11-bc5b7bc7a978" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/stdashboard/chat.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/stdashboard/chat.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -447,7 +446,7 @@
       <workItem from="1601499435925" duration="600000" />
       <workItem from="1601532116911" duration="12994000" />
       <workItem from="1601576189452" duration="2080000" />
-      <workItem from="1601634580336" duration="1545000" />
+      <workItem from="1601634580336" duration="2251000" />
     </task>
     <servers />
   </component>

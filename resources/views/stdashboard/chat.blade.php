@@ -1,6 +1,7 @@
 @extends('stdashboard.master2')
 @section('content')
     <div id="chat_container">
+        @if(!is_null($msg))
         @foreach($msg as $m)
             @if($m->sender === Auth::user()->id)
 
@@ -19,6 +20,7 @@
             </div>
             @endif
         @endforeach
+        @endif
     </div>
 
     <textarea class="msg" style="width: 100%" class="mt-5">
